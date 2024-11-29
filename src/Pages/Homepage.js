@@ -105,7 +105,7 @@ function Homepage() {
               <br></br>
               <div className="">
                 <a
-                  href="public/janithwijethungaCV.pdf"
+                  href="/janithwijethungaCV.pdf"
                   download
                   class="bg-yell hover:bg-yellow-500 text-black  hover:text-black font-bold py-2 px-4 rounded inline-flex items-center"
                 >
