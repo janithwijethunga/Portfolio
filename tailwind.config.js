@@ -12,13 +12,11 @@ module.exports = {
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],
         Jomolhari: ['Jomolhari', 'serif'],
+        Michroma: ['Michroma', 'sans-serif'],
       },
       boxShadow: {
         
-        sha: [
-            '7px 8px 8.8px rgba(0, 0, 0, 100)'
-            
-        ]
+        sha: ['7px 8px 8.8px rgba(0, 0, 0, 100)']
       },
     },
   },

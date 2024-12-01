@@ -14,6 +14,12 @@ import figma from "../Assets/figma.png";
 import boostrap from "../Assets/boostrap.png";
 import mongodb from "../Assets/mongodb.png";
 import vscode from "../Assets/vscode.png";
+import frontend from "../Assets/frontend.png";
+import fullstack from "../Assets/fullstack.png";
+import uxui from "../Assets/uxui.png";
+import webdesign from "../Assets/webdesign.png";
+import webdevelop from "../Assets/webdevelop.png";
+import backend from "../Assets/backend.png";
 
 function Homepage() {
   return (
@@ -297,11 +303,87 @@ function Homepage() {
             </div>
           </div>
 
-          
+          <br></br>
           
         </div>
 
-        
+        {/* My Interests Section */}
+        <div className="flex flex-col justify-center items-center">
+          <div className="relative ">
+            <h1 className="text-white font-bold text-6xl ">
+              My Interests
+              <span className="text-white font-bold text-9xl opacity-15 absolute top-0 -left-48 w-max ">
+                My Interests
+              </span>
+            </h1>
+          </div>
+
+          {/* Grid */}
+          <div className="grid grid-cols-3 grid-rows-2 gap-14 mt-28">
+
+            {/* Web design */}
+            <div className="w-80 h-56 bg-brw flex flex-col justify-center items-center">
+              <img src={webdesign} alt="Web Design icoon" className="size-20" />
+              <br></br>
+              <span className="text-white font-Michroma text-2xl">Web Design</span>
+              <hr className="w-20 mt-1 bg-yell border-0 h-0.5"></hr>
+            </div>
+
+            {/* Web developer */}
+            <div className="w-80 h-56 bg-brw flex flex-col justify-center items-center">
+              <img src={webdevelop} alt="Web Developer icoon" className="size-20" />
+              <br></br>
+              <span className="text-white font-Michroma text-2xl">Web Developer</span>
+              <hr className="w-20 mt-1 bg-yell border-0 h-0.5"></hr>
+            </div>
+
+            {/* Frontend developer */}
+            <div className="w-80 h-56 bg-brw flex flex-col justify-center items-center">
+              <img src={frontend} alt="frontend deveoper icoon" className="size-20" />
+              <br></br>
+              <span className="text-white font-Michroma text-2xl">FrontEnd Developer</span>
+              <hr className="w-20 mt-1 bg-yell border-0 h-0.5"></hr>
+            </div>
+
+            {/* Backend developer */}
+            <div className="w-80 h-56 bg-brw flex flex-col justify-center items-center">
+              <img src={backend} alt="Backend developer icoon" className="size-20" />
+              <br></br>
+              <span className="text-white font-Michroma text-2xl">Backend Developer</span>
+              <hr className="w-20 mt-1 bg-yell border-0 h-0.5"></hr>
+            </div>
+
+            {/* Fullstack developer */}
+            <div className="w-80 h-56 bg-brw flex flex-col justify-center items-center">
+              <img src={fullstack} alt="fullstack developer icoon" className="size-20" />
+              <br></br>
+              <span className="text-white font-Michroma text-2xl">FullStack Developer</span>
+              <hr className="w-20 mt-1 bg-yell border-0 h-0.5"></hr>
+            </div>
+
+            {/* UxUi designer */}
+            <div className="w-80 h-56 bg-brw flex flex-col justify-center items-center">
+              <img src={uxui} alt="UX/Ui designer icoon" className="size-20" />
+              <br></br>
+              <span className="text-white font-Michroma text-2xl">UX/UI Designer</span>
+              <hr className="w-20 mt-1 bg-yell border-0 h-0.5"></hr>
+            </div>
+
+          </div>
+
+          
+          {/* Education Section */}
+          <div>
+            
+          </div>
+
+
+        </div>
+
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
       </div>
     </div>
   );
