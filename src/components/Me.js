@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import My1 from "../Assets/My1.png";
 
 function HeroSection() {
@@ -12,33 +13,68 @@ function HeroSection() {
 
       <div className="relative z-10 flex flex-col md:flex-row items-center">
         {/* Image Section */}
-        <div className="mb-8 md:mb-0 md:mr-16">
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+          className="mb-8 md:mb-0 md:mr-16"
+        >
           <img
             src={My1}
             alt="Janith Wijethunga"
             className="w-64 h-64 md:w-80 md:h-80 rounded-full border-4 border-yellow-500 shadow-xl"
           />
-        </div>
+        </motion.div>
 
         {/* Text Section */}
-        <div className="text-center md:text-left">
-          <h1 className="text-white text-3xl md:text-4xl font-extrabold">
+        <motion.div
+          initial={{ x: -100, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+          className="text-center md:text-left"
+        >
+          <motion.h1
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.7 }}
+            className="text-white text-3xl md:text-4xl font-extrabold"
+          >
             Hello, I'm
-          </h1>
-          <h1 className="text-white text-5xl md:text-7xl font-bold mt-4">
+          </motion.h1>
+          <motion.h1
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.9 }}
+            className="text-white text-5xl md:text-7xl font-bold mt-4"
+          >
             <span className="text-yellow-400">Janith Wijethunga</span>
-          </h1>
-          <p className="text-gray-300 text-lg md:text-2xl font-medium mt-6">
+          </motion.h1>
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 1.1 }}
+            className="text-gray-300 text-lg md:text-2xl font-medium mt-6"
+          >
             FullStack Developer | UI/UX Designer
-          </p>
-          <p className="text-gray-400 text-sm md:text-lg mt-4 max-w-md mx-auto md:mx-0">
+          </motion.p>
+          <motion.p
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 1.3 }}
+            className="text-gray-400 text-sm md:text-lg mt-4 max-w-md mx-auto md:mx-0"
+          >
             Passionate about creating user-friendly digital experiences with a
             strong focus on clean code, intuitive designs, and modern
             technologies.
-          </p>
+          </motion.p>
 
           {/* Call-to-Action Buttons */}
-          <div className="flex justify-center md:justify-start mt-8 space-x-4">
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 1.5, ease: "easeOut" }}
+            className="flex justify-center md:justify-start mt-8 space-x-4"
+          >
             <a
               href="#contact"
               className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-2 px-6 rounded-lg transition duration-300"
@@ -51,8 +87,8 @@ function HeroSection() {
             >
               View My Work
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </div>
   );

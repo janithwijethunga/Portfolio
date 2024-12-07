@@ -1,22 +1,12 @@
-import React from "react";
-import Navbar from "../components/Navbar";
-import Me from "../components/Me";
-import AboutMe from "../components/AboutMe";
-import Skills from "../components/Skills";
-import Interests from "../components/Interests";
-import Education from "../components/Education";
+import React from 'react'
+import Navbar from '../components/Navbar'
 
 function Homepage() {
   return (
-    <div className="bg-back ">
-      <Navbar />
-      <Me />
-      <AboutMe />
-      <Skills />
-      <Interests />
-      <Education />
+    <div className='bg-black'>
+      <Navbar/>
     </div>
-  );
+  )
 }
 
-export default Homepage;
+export default Homepage

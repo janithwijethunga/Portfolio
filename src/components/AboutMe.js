@@ -1,59 +1,93 @@
 import React from "react";
+import { motion } from "framer-motion";
 import My2 from "../Assets/My2.png";
 import { FaDownload } from "react-icons/fa";
 
 function AboutMe() {
+  // Animation Variants
+  const textVariant = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
+  const containerVariant = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.2 } },
+  };
+
+  const imageVariant = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: "easeOut" } },
+  };
+
   return (
-    <div className="bg-gray-900 py-20 px-6 md:px-12">
-      <div className="container mx-auto flex flex-col md:flex-row items-center">
+    <motion.section
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, amount: 0.5 }} // Animates when the component is 50% in the viewport
+      variants={containerVariant}
+      className="bg-gray-900 py-20 px-6 md:px-16 lg:px-24"
+    >
+      <div className="container mx-auto flex flex-col lg:flex-row items-center gap-12">
         {/* Text Section */}
-        <div className="text-white text-center md:text-left md:w-1/2 font-poppins">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-6 relative">
-            About Me
-            <span className="absolute text-8xl md:text-9xl opacity-10 top-0 left-0 md:left-10 transform translate-y-[-50%] text-yellow-500">
+        <motion.div
+          variants={textVariant}
+          className="lg:w-1/2 text-white font-poppins"
+        >
+          <h1 className="text-3xl md:text-4xl font-semibold relative mb-6">
+            <span className="absolute inset-0 text-gray-700 opacity-5 text-7xl lg:text-8xl font-extrabold">
               About Me
             </span>
+            About Me
           </h1>
-          <p className="text-lg md:text-xl font-medium mb-6 leading-relaxed">
+          <p className="text-base md:text-lg leading-relaxed mb-4">
             I am an undergraduate student pursuing a{" "}
-            <span className="text-yellow-400">
+            <span className="text-yellow-400 font-semibold">
               BSc (Hons) in Information Technology
             </span>{" "}
             at the Sri Lanka Institute of Information Technology.
           </p>
-          <p className="text-lg md:text-xl font-medium mb-6 leading-relaxed">
-            I am passionate about{" "}
-            <span className="text-yellow-400">Fullstack Development</span> and{" "}
-            <span className="text-yellow-400">UX/UI Design</span>. I enjoy
-            learning new technologies to enhance my skills, collaborating in
-            team environments, and delivering high-quality work on time.
+          <p className="text-base md:text-lg leading-relaxed mb-4">
+            Passionate about{" "}
+            <span className="text-yellow-400 font-semibold">
+              Fullstack Development
+            </span>{" "}
+            and{" "}
+            <span className="text-yellow-400 font-semibold">
+              UX/UI Design
+            </span>
+            , I enjoy working in collaborative environments, learning new
+            technologies, and delivering high-quality results.
           </p>
-          <p className="text-lg md:text-xl font-medium mb-6 leading-relaxed">
-            Challenges inspire me to grow, and I strive to contribute positively
-            to any organization I am part of.
+          <p className="text-base md:text-lg leading-relaxed mb-6">
+            Driven by challenges, I aim to grow personally and professionally
+            while contributing positively to any team or organization I join.
           </p>
-          <div className="mt-4">
-            <a
-              href="/JanithwijethungaCV.pdf"
-              download
-              className="bg-yellow-500 hover:bg-yellow-600 text-black font-bold py-3 px-6 rounded-lg inline-flex items-center transition duration-300"
-            >
-              <FaDownload />
-              <span className="ml-2">Download CV</span>
-            </a>
-          </div>
-        </div>
+          <motion.a
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            href="/JanithwijethungaCV.pdf"
+            download
+            className="inline-flex items-center gap-2 bg-yellow-500 text-black font-semibold py-3 px-6 rounded-lg shadow-md hover:bg-yellow-600 transition duration-300"
+          >
+            <FaDownload />
+            <span>Download CV</span>
+          </motion.a>
+        </motion.div>
 
         {/* Image Section */}
-        <div className="mt-12 md:mt-0 md:ml-16 md:w-1/2 flex justify-center">
+        <motion.div
+          variants={imageVariant}
+          className="lg:w-1/2 flex justify-center"
+        >
           <img
             src={My2}
             alt="Janith Wijethunga"
-            className="rounded-lg shadow-lg w-80 md:w-full max-w-sm"
+            className="w-72 md:w-96 lg:w-full max-w-sm rounded-lg shadow-lg"
           />
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.section>
   );
 }
 
