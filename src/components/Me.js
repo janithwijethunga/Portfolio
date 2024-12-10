@@ -4,14 +4,14 @@ import My1 from "../Assets/My1.png";
 
 function HeroSection() {
   return (
-    <div className="relative bg-gradient-to-b from-gray-900 to-black h-screen flex items-center justify-center px-6">
+    <div className="relative bg-gradient-to-b from-gray-900 to-black h-screen flex items-center justify-center px-6 mt-12 md:mt-5 ">
       {/* Decorative Background */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute w-72 h-72 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full opacity-20 -top-16 -left-20"></div>
         <div className="absolute w-96 h-96 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full opacity-10 bottom-0 right-0"></div>
       </div>
 
-      <div className="relative z-10 flex flex-col md:flex-row items-center">
+      <div className="relative z-10 flex flex-col md:flex-row items-center ">
         {/* Image Section */}
         <motion.div
           initial={{ scale: 0, opacity: 0 }}

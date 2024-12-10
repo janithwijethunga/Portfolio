@@ -16,9 +16,12 @@ function Education() {
         {/* Section Title */}
         <div className="text-center mb-12 relative">
           <h1 className="text-5xl font-bold">Education</h1>
-          <span className="absolute inset-0 text-9xl text-gray-600 opacity-10">
+          <span className="absolute inset-0 text-9xl text-gray-600 opacity-50">
             Education
           </span>
+          <br></br>
+          <br></br>
+          <br></br>
         </div>
 
         <VerticalTimeline>
@@ -77,7 +80,7 @@ function Education() {
           <VerticalTimelineElement
             className="vertical-timeline-element--education"
             contentStyle={{
-              background: "#ffffff",
+              background: "rgb(28, 38, 58)",
               color: "#fff",
               borderRadius: "12px",
               boxShadow: "0px 4px 15px rgba(0, 0, 0, 0.4)",
@@ -85,7 +88,7 @@ function Education() {
             contentArrowStyle={{ borderRight: "7px solid rgb(45, 20, 50)" }}
             date="2011 June - 2022"
             iconStyle={{
-              background: "rgb(233, 30, 99)",
+              background: "rgb(255,255,255)",
               color: "#fff",
               display: "flex",
               justifyContent: "center",
