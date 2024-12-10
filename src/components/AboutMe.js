@@ -21,15 +21,17 @@ function AboutMe() {
   };
 
   return (
+    <div  id="AboutMe" >
     <motion.section
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true, amount: 0.5 }} // Animates when the component is 50% in the viewport
       variants={containerVariant}
-      className="relative bg-gradient-to-br from-gray-900 via-black to-gray-800 py-20 px-6 md:px-16 lg:px-24"
+      
+      className=" relative bg-gradient-to-br from-gray-900 via-black to-gray-800 py-20 px-6 md:px-16 lg:px-24"
     >
       {/* Cool Background */}
-      <div className="absolute inset-0 overflow-hidden z-0">
+      <div className="absolute inset-0 overflow-hidden z-0 ">
         <div className="absolute w-96 h-96 bg-blue-500 rounded-full opacity-20 blur-3xl -top-16 -left-24"></div>
         <div className="absolute w-80 h-80 bg-yellow-500 rounded-full opacity-20 blur-3xl top-32 right-20"></div>
         <div className="absolute w-72 h-72 bg-green-500 rounded-full opacity-20 blur-3xl bottom-10 left-40"></div>
@@ -95,6 +97,7 @@ function AboutMe() {
         </motion.div>
       </div>
     </motion.section>
+    </div>
   );
 }
 

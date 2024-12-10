@@ -9,9 +9,11 @@ function Navbar() {
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
       setActiveSection(id);
-      setIsMenuOpen(false); // Close menu on navigation
+      setIsMenuOpen(false); // Close the menu on navigation
     }
   };
+
+  const sections = ["Home", "AboutMe", "My Skills", "Interests", "Educations", "contact"];
 
   return (
     <nav className="fixed top-0 w-full bg-gray-900 shadow-md z-50">
@@ -39,46 +41,37 @@ function Navbar() {
 
         {/* Desktop Navigation */}
         <ul className="hidden md:flex space-x-8 text-white text-lg">
-          {["me", "aboutMe", "skills", "education", "projects", "contact"].map(
-            (section) => (
-              <li
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className={`cursor-pointer transition-colors px-3 py-2 rounded-lg ${
-                  activeSection === section
-                    ? "bg-white text-gray-900"
-                    : "hover:bg-gray-800"
-                }`}
-              >
-                {section === "me" ? "Home" : section.replace(/([A-Z])/g, " $1")}
-              </li>
-            )
-          )}
+          {sections.map((section) => (
+            <li
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className={`cursor-pointer transition-colors px-3 py-2 rounded-lg ${
+                activeSection === section
+                  ? "bg-white text-gray-900"
+                  : "hover:bg-gray-800"
+              }`}
+            >
+              {section === "me" ? "Home" : section.replace(/([A-Z])/g, " $1")}
+            </li>
+          ))}
         </ul>
 
         {/* Mobile Hamburger Icon */}
-        <div className="md:hidden">
-          <button
-            className="text-white focus:outline-none"
-            aria-label="Toggle navigation"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+        <button
+          className="md:hidden text-white focus:outline-none"
+          aria-label="Toggle navigation"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          <svg
+            className="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            viewBox="0 0 24 24"
           >
-            <svg
-              className="w-8 h-8"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
-        </div>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
       </div>
 
       {/* Mobile Full-Screen Menu */}
@@ -95,26 +88,19 @@ function Navbar() {
               stroke="currentColor"
               strokeWidth="2"
               viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6 18L18 6M6 6l12 12"
-              />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-          {["me", "aboutMe", "skills", "education", "projects", "contact"].map(
-            (section) => (
-              <button
-                key={section}
-                onClick={() => scrollToSection(section)}
-                className="text-white text-2xl hover:underline"
-              >
-                {section === "me" ? "Home" : section.replace(/([A-Z])/g, " $1")}
-              </button>
-            )
-          )}
+          {sections.map((section) => (
+            <button
+              key={section}
+              onClick={() => scrollToSection(section)}
+              className="text-white text-2xl hover:underline"
+            >
+              {section === "me" ? "Home" : section.replace(/([A-Z])/g, " $1")}
+            </button>
+          ))}
         </div>
       )}
     </nav>

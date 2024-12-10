@@ -4,7 +4,7 @@ import My1 from "../Assets/My1.png";
 
 function HeroSection() {
   return (
-    <div className="relative bg-gradient-to-b from-gray-900 to-black h-screen flex items-center justify-center px-6 mt-12 md:mt-5 ">
+    <div id="Home" className="relative bg-gradient-to-b from-gray-900 to-black h-screen flex items-center justify-center px-6 mt-12 md:mt-5 ">
       {/* Decorative Background */}
       <div className="absolute inset-0 overflow-hidden z-0">
         <div className="absolute w-72 h-72 bg-gradient-to-r from-yellow-500 to-yellow-600 rounded-full opacity-20 -top-16 -left-20"></div>
