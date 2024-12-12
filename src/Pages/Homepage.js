@@ -5,6 +5,7 @@ import Aboutme from '../components/AboutMe'
 import Skills from '../components/Skills'
 import Interests from '../components/Interests'
 import Education from '../components/Education'
+import Projects from '../components/Projects'
 
 function Homepage() {
   return (
@@ -15,6 +16,7 @@ function Homepage() {
       <Skills/>
       <Interests/>
       <Education/>
+      <Projects/>
     </div>
   )
 }
