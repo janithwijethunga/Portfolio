@@ -13,10 +13,10 @@ function Navbar() {
     }
   };
 
-  const sections = ["Home", "AboutMe", "My Skills", "Interests", "Educations", "contact"];
+  const sections = ["Home", "AboutMe", "My Skills", "Interests", "Educations", "Projects"];
 
   return (
-    <nav className="fixed top-0 w-full bg-gray-900 shadow-md z-50">
+    <nav className="fixed top-0 w-full bg-gray-900 shadow-md z-50 font-poppins">
       <div className="container mx-auto flex justify-between items-center px-6 py-4">
         {/* Logo */}
         <div

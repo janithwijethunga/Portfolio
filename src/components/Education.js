@@ -11,17 +11,17 @@ import sliitlogo from "../Assets/sliitlogo.png";
 
 function Education() {
   return (
-    <div id="Educations" className="bg-gray-900 text-white py-20">
+    <div id="Educations" className="bg-gray-900 text-white py-20 font-poppins">
       <div className="container mx-auto px-6 md:px-12">
         {/* Section Title */}
         <div className="text-center mb-12 relative">
           {/* Large "Education" text */}
-          <span className="absolute inset-0 text-whitw opacity-50 text-7xl md:text-9xl z-0">
+          <span className="absolute inset-0 text-whitw opacity-10 text-7xl md:text-9xl z-0">
             Education
           </span>
 
           {/* Foreground "Education" text */}
-          <h1 className="relative text-2xl md:text-7xl font-bold z-10">
+          <h1 className=" text-white relative text-2xl md:text-7xl font-bold z-10">
             Education
           </h1>
           <br></br>
