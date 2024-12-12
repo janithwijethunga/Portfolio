@@ -40,7 +40,7 @@ const cardVariants = {
 
 const ProjectsSection = () => {
   return (
-    <div id="projects" className="bg-gray-900 pt-10 px-5">
+    <div id="Projects" className="bg-gray-900 pt-10 px-5">
       <div className="container mx-auto">
         {/* Title */}
         <motion.div

@@ -13,7 +13,7 @@ function Navbar() {
     }
   };
 
-  const sections = ["Home", "AboutMe", "My Skills", "Interests", "Educations", "Projects"];
+  const sections = ["Home", "AboutMe", "My Skills", "Interests", "Educations", "Projects","Contact"];
 
   return (
     <nav className="fixed top-0 w-full bg-gray-900 shadow-md z-50 font-poppins">

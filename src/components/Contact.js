@@ -50,7 +50,7 @@ const itemVariants = {
 const Contact = () => {
   return (
     <div
-      id="contact"
+      id="Contact"
       className="bg-gradient-to-r from-gray-800 to-gray-900 py-16 px-5 text-center"
     >
       <div className="container mx-auto">
