@@ -51,7 +51,7 @@ function Email() {
           <img
             src={Desk}
             alt="Desk Setup"
-            className="max-w-full h-auto rounded-lg shadow-lg"
+            className="md:mr-56 mr-24"
           />
         </div>
 
