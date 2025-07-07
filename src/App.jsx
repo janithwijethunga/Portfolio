@@ -4,9 +4,11 @@ import Homepage from './Pages/Homepage'
 function App() {
 
   return (
-    <Routes>
+    <main className="bg-slate-300/20">
+      <Routes>
       <Route path="/" element={<Homepage />} />
     </Routes>
+    </main>
   )
 }
 
