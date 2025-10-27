@@ -1,14 +1,14 @@
 import { Routes, Route } from "react-router-dom"
+import { MainLayout } from './layouts'
 import Homepage from './Pages/Homepage'
 
 function App() {
-
   return (
-    <main className="bg-slate-300/20">
+    <MainLayout>
       <Routes>
-      <Route path="/" element={<Homepage />} />
-    </Routes>
-    </main>
+        <Route path="/" element={<Homepage />} />
+      </Routes>
+    </MainLayout>
   )
 }
 
