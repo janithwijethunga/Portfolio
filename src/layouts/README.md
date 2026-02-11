@@ -32,52 +32,13 @@ For full page layouts with optional title and subtitle.
 - `subtitle` (string, optional): Page subtitle/description
 - `children` (ReactNode): Page content
 - `className` (string, optional): Additional CSS classes
+- `eyebrow` (string, optional): Small label above the title
 
 **Usage:**
 ```jsx
 import { PageLayout } from '../layouts'
 
-const AboutPage = () => {
-  return (
-    <PageLayout 
-      title="About Me" 
-      subtitle="Learn more about my background"
-      className="pt-16"
-    >
-      {/* Page content */}
-    </PageLayout>
-  )
-}
-```
 
-### 3. SectionLayout (`src/layouts/SectionLayout.jsx`)
-For individual sections within a page.
-
-**Props:**
-- `title` (string, optional): Section title
-- `subtitle` (string, optional): Section subtitle/description
-- `children` (ReactNode): Section content
-- `className` (string, optional): Additional CSS classes
-- `id` (string, optional): Section ID for navigation
-
-**Usage:**
-```jsx
-import { SectionLayout } from '../layouts'
-
-const Homepage = () => {
-  return (
-    <div>
-      <SectionLayout 
-        id="about" 
-        title="About Me" 
-        subtitle="My background and experience"
-        className="bg-gray-50"
-      >
-        {/* Section content */}
-      </SectionLayout>
-    </div>
-  )
-}
 ```
 
 ## Navigation System
@@ -114,24 +75,22 @@ src/
 ├── layouts/
 │   ├── MainLayout.jsx     # Main app wrapper
 │   ├── PageLayout.jsx     # Full page layout
-│   ├── SectionLayout.jsx  # Section layout
 │   └── index.js          # Layout exports
 ├── Pages/
-│   ├── Homepage.jsx      # Main homepage with sections
-│   └── AboutPage.jsx     # Example additional page
+│   └── Homepage.jsx      # Main homepage with sections
+│ 
 └── Components/
-    └── Navbar.jsx        # Navigation component
+  └── common/           # Navbar, footer, theme toggle
 ```
 
 ## Best Practices
 
 1. **Use MainLayout** for the entire app wrapper
 2. **Use PageLayout** for standalone pages
-3. **Use SectionLayout** for homepage sections
-4. **Add consistent spacing** with Tailwind classes
-5. **Include proper IDs** for navigation targets
-6. **Use semantic HTML** elements
-7. **Ensure accessibility** with proper heading hierarchy
+3. **Add consistent spacing** with Tailwind classes
+4. **Include proper IDs** for navigation targets
+5. **Use semantic HTML** elements
+6. **Ensure accessibility** with proper heading hierarchy
 
 ## Example Implementation
 
@@ -144,25 +103,18 @@ function App() {
     <MainLayout>
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/about" element={<AboutPage />} />
       </Routes>
     </MainLayout>
   )
 }
 
 // Homepage.jsx
-import { SectionLayout } from '../layouts'
-
 const Homepage = () => {
   return (
-    <div className="pt-16">
-      <SectionLayout id="hero" className="min-h-screen">
-        <Hero />
-      </SectionLayout>
-      
-      <SectionLayout id="about" title="About Me">
-        <AboutSection />
-      </SectionLayout>
+    <div>
+      <HeroSection />
+      <AboutSection />
+      <ProjectsSection />
     </div>
   )
 }

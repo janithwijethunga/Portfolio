@@ -1,6 +1,6 @@
-import { Routes, Route } from "react-router-dom"
-import { MainLayout } from './layouts'
-import Homepage from './Pages/Homepage'
+import { Routes, Route } from "react-router-dom";
+import { MainLayout } from "./layouts";
+import Homepage from "./Pages/Homepage";
 
 function App() {
   return (

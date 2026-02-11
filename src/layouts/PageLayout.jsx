@@ -1,23 +1,20 @@
-import React from 'react'
+import Container from "../Components/ui/Container";
+import SectionHeader from "../Components/ui/SectionHeader";
 
-const PageLayout = ({ title, subtitle, children, className = "" }) => {
+const PageLayout = ({ title, subtitle, eyebrow, children, className = "" }) => {
   return (
-    <div className={`container mx-auto px-4 py-8 ${className}`}>
-      {title && (
-        <div className="text-center mb-12">
-          <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-4">
-            {title}
-          </h1>
-          {subtitle && (
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              {subtitle}
-            </p>
-          )}
-        </div>
-      )}
-      <div className="w-full">
-        {children}
-      </div>
+    <div className={`pb-24 ${className}`}>
+      <Container className="space-y-12">
+        {title && (
+          <SectionHeader
+            eyebrow={eyebrow}
+            title={title}
+            subtitle={subtitle}
+            align="center"
+          />
+        )}
+        <div className="w-full">{children}</div>
+      </Container>
     </div>
   )
 }

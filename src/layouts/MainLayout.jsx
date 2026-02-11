@@ -1,18 +1,13 @@
-import React from 'react'
-import Navbar from '../Components/Navbar'
+import { Footer, Navbar } from "../Components/common";
 
 const MainLayout = ({ children }) => {
   return (
-    <div className="min-h-screen bg-slate-300/20">
+    <div className="min-h-screen bg-gradient-to-b from-white via-white to-neutral-100 dark:from-neutral-900 dark:via-neutral-900 dark:to-neutral-950">
       <Navbar />
-      <main className="w-full">
+      <main className="w-full pt-28">
         {children}
       </main>
-      <footer className="bg-gray-800 text-white py-8 mt-auto">
-        <div className="container mx-auto px-4 text-center">
-          <p>&copy; 2025 Janith Wijethunga. All rights reserved.</p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
