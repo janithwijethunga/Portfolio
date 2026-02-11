@@ -1,14 +1,15 @@
-import useTheme from "../../hooks/useTheme.jsx";
+import { useTheme } from "../../hooks/useTheme.jsx";
 
-const themes = ["light", "dark"];
+const themes = ["light", "dark", "system"];
 
 const icons = {
   light: "Light",
   dark: "Dark",
+  system: "System",
 };
 
 const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
 
   const handleToggle = () => {
     const currentIndex = themes.indexOf(theme);
@@ -25,7 +26,7 @@ const ThemeToggle = () => {
     >
       <span className="text-[11px] uppercase tracking-widest">{icons[theme]}</span>
       <span className="h-2 w-2 rounded-full bg-primary-500" aria-hidden />
-      <span className="text-[11px] text-neutral-500 dark:text-neutral-400">{theme}</span>
+      <span className="text-[11px] text-neutral-500 dark:text-neutral-400">{resolvedTheme}</span>
     </button>
   );
 };

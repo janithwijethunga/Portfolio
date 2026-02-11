@@ -42,7 +42,7 @@ const ProjectsSection = () => {
                 </div>
                 <div className="mt-auto">
                   <Button as="a" href={project.link} target="_blank" rel="noreferrer" variant="ghost">
-                    View on GitHub &rarr;
+                    View on GitHub ->
                   </Button>
                 </div>
               </Card>
