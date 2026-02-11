@@ -18,7 +18,3 @@ export const stagger = {
   },
 };
 
-export const floatHover = {
-  initial: { y: 0 },
-  hover: { y: -4, transition: { duration: 0.2, ease: "easeOut" } },
-};
