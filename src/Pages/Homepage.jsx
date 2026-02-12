@@ -1,6 +1,9 @@
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import HeroAboutScroll from "../sections/HeroSection";
+
+import ScrollProgressBar from "../Components/ui/ScrollProgressBar"; // ✅ add this
+
 import {
   ContactSection,
   EducationSection,
@@ -8,23 +11,15 @@ import {
   ProjectsSection,
   SkillsSection,
 } from "../sections";
+// import CoordOverlay from "../Components/ui/CoordOverlay";
 
 const Homepage = () => {
   const location = useLocation();
 
-  // ✅ prevent browser from restoring old scroll position on refresh/back
   useEffect(() => {
-    if ("scrollRestoration" in window.history) {
-      window.history.scrollRestoration = "manual";
-    }
+    window.scrollTo(0, 0);
   }, []);
 
-  // ✅ scroll to top ASAP on first mount (before paint)
-  useLayoutEffect(() => {
-    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }, []);
-
-  // ✅ hash navigation (keep this)
   useEffect(() => {
     if (!location.hash) return;
     const id = location.hash.replace("#", "");
@@ -34,6 +29,9 @@ const Homepage = () => {
 
   return (
     <>
+      {/* <CoordOverlay/> */}
+      <ScrollProgressBar side="left" orbitRadius={18} turns={10} />
+      {/* ✅ green vertical scrollbar */}
       <HeroAboutScroll />
       <SkillsSection />
       <InterestsSection />

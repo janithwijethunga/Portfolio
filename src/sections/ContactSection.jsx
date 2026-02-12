@@ -44,12 +44,7 @@ const ContactSection = () => {
                 ))}
               </div>
             </Card>
-            <Card>
-              <div className="overflow-hidden rounded-2xl bg-neutral-100 dark:bg-neutral-800">
-                <img src={deskImage} alt="Desk setup" className="aspect-[4/3] w-full object-cover" />
-              </div>
-              <p className="mt-4 text-sm text-neutral-500 dark:text-neutral-400">Desk setup</p>
-            </Card>
+       
           </motion.div>
 
           <motion.div variants={fadeUp}>
