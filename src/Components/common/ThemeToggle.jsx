@@ -1,32 +1,27 @@
 import { useTheme } from "../../hooks/useTheme.jsx";
-
-const themes = ["light", "dark", "system"];
-
-const icons = {
-  light: "Light",
-  dark: "Dark",
-  system: "System",
-};
+import { IoSunnyOutline } from "react-icons/io5";
+import { FaMoon } from "react-icons/fa";
 
 const ThemeToggle = () => {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === "dark";
 
   const handleToggle = () => {
-    const currentIndex = themes.indexOf(theme);
-    const nextTheme = themes[(currentIndex + 1) % themes.length];
-    setTheme(nextTheme);
+    setTheme(isDark ? "light" : "dark");
   };
 
   return (
     <button
       type="button"
       onClick={handleToggle}
-      className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white/70 px-3 py-1.5 text-xs font-semibold text-neutral-700 transition hover:border-neutral-300 hover:text-neutral-900 dark:border-neutral-700 dark:bg-neutral-900/70 dark:text-neutral-200 dark:hover:text-neutral-100"
-      aria-label={`Toggle theme (current: ${theme})`}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-neutral-200 bg-white/80 text-neutral-700 shadow-soft transition hover:-translate-y-0.5 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:border-neutral-800 dark:bg-neutral-900/80 dark:text-neutral-200 dark:focus-visible:ring-offset-neutral-900"
     >
-      <span className="text-[11px] uppercase tracking-widest">{icons[theme]}</span>
-      <span className="h-2 w-2 rounded-full bg-primary-500" aria-hidden />
-      <span className="text-[11px] text-neutral-500 dark:text-neutral-400">{resolvedTheme}</span>
+      {isDark ? (
+        <IoSunnyOutline />
+      ) : (
+       <FaMoon />
+      )}
     </button>
   );
 };

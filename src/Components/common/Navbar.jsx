@@ -1,7 +1,6 @@
 import { useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
-import ThemeToggle from "./ThemeToggle";
 import MobileMenu from "./MobileMenu";
 import Button from "../ui/Button";
 
@@ -18,9 +17,8 @@ const Navbar = () => {
       { name: "Interests", href: "#interests", id: "interests" },
       { name: "Educations", href: "#education", id: "education" },
       { name: "Projects", href: "#projects", id: "projects" },
-      { name: "Contact", href: "#contact", id: "contact" },
     ],
-    []
+    [],
   );
 
   const onScroll = (id) => {
@@ -63,9 +61,12 @@ const Navbar = () => {
           </div>
 
           <div className="hidden items-center gap-3 md:flex">
-            <ThemeToggle />
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button as="button" type="button" variant="secondary" onClick={() => onScroll("contact")}
+              <Button
+                as="button"
+                type="button"
+                variant="secondary"
+                onClick={() => onScroll("contact")}
               >
                 Contact
               </Button>
@@ -81,7 +82,12 @@ const Navbar = () => {
             <span className="text-lg">{isOpen ? "-" : "+"}</span>
           </button>
         </div>
-        <MobileMenu isOpen={isOpen} onClose={() => setIsOpen(false)} items={navItems} onScroll={onScroll} />
+        <MobileMenu
+          isOpen={isOpen}
+          onClose={() => setIsOpen(false)}
+          items={navItems}
+          onScroll={onScroll}
+        />
       </div>
     </nav>
   );

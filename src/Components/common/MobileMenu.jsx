@@ -1,6 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import ThemeToggle from "./ThemeToggle";
 
 const MobileMenu = ({ isOpen, onClose, items, onScroll }) => {
   return (
@@ -36,8 +35,7 @@ const MobileMenu = ({ isOpen, onClose, items, onScroll }) => {
                 </div>
               ))}
             </div>
-            <div className="mt-4 flex items-center justify-between border-t border-neutral-200 pt-4 dark:border-neutral-800">
-              <ThemeToggle />
+            <div className="mt-4 flex items-center justify-end border-t border-neutral-200 pt-4 dark:border-neutral-800">
               <button
                 type="button"
                 onClick={onClose}
