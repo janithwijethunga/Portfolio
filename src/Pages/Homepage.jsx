@@ -1,16 +1,14 @@
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import { motion } from "framer-motion";
+import HeroAboutScroll from "../sections/HeroSection";
+
 import {
-  AboutSection,
   ContactSection,
   EducationSection,
-  HeroSection,
   InterestsSection,
   ProjectsSection,
   SkillsSection,
 } from "../sections";
-import { fadeIn } from "../utils/motion";
 
 const Homepage = () => {
   const location = useLocation();
@@ -18,23 +16,20 @@ const Homepage = () => {
   useEffect(() => {
     if (!location.hash) return;
     const id = location.hash.replace("#", "");
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   }, [location.hash]);
 
   return (
-    <motion.div variants={fadeIn} initial="hidden" animate="visible">
-      <HeroSection />
-      <AboutSection />
+    <>
+      <HeroAboutScroll />
       <SkillsSection />
       <InterestsSection />
       <EducationSection />
       <ProjectsSection />
       <ContactSection />
-    </motion.div>
+    </>
   );
 };
 
-export default Homepage
+export default Homepage;
