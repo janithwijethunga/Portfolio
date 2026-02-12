@@ -12,7 +12,6 @@ const Navbar = () => {
   const navItems = useMemo(
     () => [
       { name: "Home", href: "#home", id: "home" },
-      { name: "About Me", href: "#about", id: "about" },
       { name: "My Skills", href: "#skills", id: "skills" },
       { name: "Interests", href: "#interests", id: "interests" },
       { name: "Educations", href: "#education", id: "education" },
