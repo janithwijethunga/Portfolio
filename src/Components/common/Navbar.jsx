@@ -35,9 +35,9 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="fixed top-4 left-0 right-0 z-50">
-      <div className="mx-auto w-full max-w-6xl px-6">
-        <div className="flex items-center justify-between rounded-full border border-neutral-200 bg-white/80 px-5 py-3 shadow-soft backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/80">
+    <nav className="fixed top-0 left-0 right-0 z-[9999]">
+      <div className="mx-auto w-full">
+        <div className="flex items-center justify-between px-5 py-3 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md">{" "}
           <Link
             to="/"
             className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-900 dark:text-neutral-100"
@@ -45,7 +45,7 @@ const Navbar = () => {
             Janith Wijethunga
           </Link>
 
-          <div className="hidden items-center gap-6 md:flex">
+          <div className="hidden items-center gap-6 mr-28 md:flex">
             {navItems.map((item) => (
               <div key={item.id}>
                 <button
@@ -61,14 +61,13 @@ const Navbar = () => {
 
           <div className="hidden items-center gap-3 md:flex">
             <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-              <Button
+              <button
                 as="button"
                 type="button"
-                variant="secondary"
                 onClick={() => onScroll("contact")}
               >
                 Contact
-              </Button>
+              </button>
             </motion.div>
           </div>
 

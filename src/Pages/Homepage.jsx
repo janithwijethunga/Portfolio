@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import HeroAboutScroll from "../sections/HeroSection";
 
+import Lenis from "lenis"; // ✅ add this
+
 import ScrollProgressBar from "../Components/ui/ScrollProgressBar"; // ✅ add this
 
 import {
@@ -15,6 +17,29 @@ import {
 
 const Homepage = () => {
   const location = useLocation();
+
+  // ✅ Lenis smooth scroll (ONLY added)
+  useEffect(() => {
+    const lenis = new Lenis({
+      smoothWheel: true,
+      smoothTouch: false,
+      lerp: 0.08, // tweak 0.06-0.12
+      wheelMultiplier: 1,
+      touchMultiplier: 1,
+    });
+
+    let rafId;
+    const raf = (time) => {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    };
+    rafId = requestAnimationFrame(raf);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      lenis.destroy();
+    };
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);

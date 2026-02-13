@@ -1,5 +1,6 @@
 import courierImage from "../Assets/oepm.png";
 import brickImage from "../Assets/brick.png";
+import jclothingImage from "../Assets/jclothing.png";
 
 export const projects = [
   {
@@ -17,5 +18,14 @@ export const projects = [
     tech: ["Kotlin", "Android Studio"],
     link: "https://github.com/janithwijethunga",
     image: brickImage,
+  },
+
+  {
+    name: "Jclothing - Ecommerce Web Application Frontend",
+    description:
+      "User-friendly interface for browsing products, managing cart, and seamless checkout experience.",
+    tech: ["React Js"],
+    link: "https://github.com/janithwijethunga/JClothing",
+    image: jclothingImage,
   },
 ];
