@@ -25,7 +25,7 @@ export default function ScrollDotPoints({
   showPath = false,
 
   // ✅ speed control: 1 = normal, >1 slower, <1 faster
-  scrollFactor = 1.1,
+  scrollFactor = 2,
 }) {
   const dotRef = useRef(null);
   const [tailD, setTailD] = useState("");
@@ -104,7 +104,7 @@ export default function ScrollDotPoints({
         <path
           d={tailD}
           fill="none"
-          stroke="rgba(34,197,94,0.85)"
+          stroke="rgba(255,255,255)"
           strokeWidth={tailStroke}
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -115,7 +115,7 @@ export default function ScrollDotPoints({
         <circle
           ref={dotRef}
           r={dotSize / 2}
-          fill="rgb(74 222 128)"
+          fill="rgb(255 255 255)"
           style={{ filter: "drop-shadow(0 0 14px rgba(34,197,94,0.9))" }}
         />
       </svg>
