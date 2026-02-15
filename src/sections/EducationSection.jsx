@@ -10,9 +10,6 @@ import SectionHeader from "../Components/ui/SectionHeader";
 import EducationModal from "../Components/EducationModal";
 import { education } from "../data/education";
 
-// Assets
-import EDU1 from "../assets/edu1.jpg";
-import EDU2 from "../assets/edu2.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -164,14 +161,14 @@ const EducationSection = () => {
           >
             <MilestoneCard
               cardRef={leftCardRef}
-              coverImg={EDU1}
+              coverImg={"https://res.cloudinary.com/dksfpirc6/image/upload/v1771135531/EDU1_qr72tr.webp"}
               item={education?.[0]}
               onSeeMore={handleCardClick}
               side="left"
             />
             <MilestoneCard
               cardRef={rightCardRef}
-              coverImg={EDU2}
+              coverImg={"https://res.cloudinary.com/dksfpirc6/image/upload/v1771135532/EDU2_q3ege1.webp"}
               item={education?.[1]}
               onSeeMore={handleCardClick}
               side="right"

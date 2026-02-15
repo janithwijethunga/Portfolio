@@ -7,7 +7,6 @@ import SectionHeader from "../Components/ui/SectionHeader";
 import Textarea from "../Components/ui/Textarea";
 import { fadeUp, stagger } from "../utils/motion";
 import { contactCards } from "../data/contact";
-import deskImage from "../Assets/desk.png";
 
 const ContactSection = () => {
   return (

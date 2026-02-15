@@ -6,31 +6,27 @@ import Button from "../Components/ui/Button";
 import { heroContent } from "../data/hero";
 import AboutSection from "./AboutSection";
 
-import heroImage from "../Assets/Me.png";
-import uiShot1 from "../Assets/mobile.png";
-import uiShot2 from "../Assets/webdev.png";
-import uiShot3 from "../Assets/frontenddev.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const cards = [
   {
     title: "UI/UX Designer",
-    img: uiShot1,
+    img: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771135548/mobile_vdrqpm.webp",
     top: "-top-10",
     left: "left-6",
     z: "z-20",
   },
   {
     title: "Web Developer",
-    img: uiShot2,
+    img: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771135533/webdev_prqyhr.webp",
     top: "top-32",
     left: "right-0",
     z: "z-10",
   },
   {
     title: "Frontend Developer",
-    img: uiShot3,
+    img: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771135543/frontenddev_fivxld.webp",
     top: "-bottom-16",
     left: "left-10",
     z: "z-0",
@@ -222,10 +218,7 @@ export default function HeroAboutScroll() {
             </div>
 
             {/* ABOUT layer (starts below; slides up) */}
-            <div
-              ref={aboutTextRef}
-              className="absolute inset-0 space-y-6 will-change-transform w-full"
-            ></div>
+            
           </div>
           <div
             ref={aboutTextRef}
@@ -239,7 +232,7 @@ export default function HeroAboutScroll() {
             <div ref={imageWrapRef} className="relative will-change-transform">
               <div className="absolute top-32 inset-0 translate-y-6 rounded-full bg-black/40 blur-2xl dark:bg-white/10" />
               <img
-                src={heroImage}
+                src={"https://res.cloudinary.com/dksfpirc6/image/upload/v1771135547/Me_sl9phq.webp"}
                 alt={heroContent.name}
                 className="relative w-full select-none object-cover rounded-3xl"
                 draggable={false}

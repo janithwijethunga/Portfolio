@@ -1,16 +1,11 @@
-import sliitLogo from "../Assets/sliitlogo.png";
-import pccLogo from "../Assets/pcclogo.png";
-import sliitimg from "../Assets/sliit.png";
-import pccimg from "../Assets/pcc.png";
-
 export const education = [
   {
   school: "Sri Lanka Institute of Information Technology (SLIIT)",
   program: "BSc (Hons) Information Technology",
   specialization: "Information Technology",
   date: "2022 June - 2026 September",
-  logo: sliitLogo,
-  image: sliitimg,
+  logo: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771135530/sliitlogo_fdyhrf.webp",
+  image: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771135531/sliit_trjatm.webp",
   // We group these so we can loop through them in the modal
   curriculum: [
     { year: "1st Year", modules: ["Introduction to Programming", "Mathematics for Computing", "Object Oriented Concepts", "Internet & Web Technologies"] },
@@ -24,8 +19,8 @@ export const education = [
     school: "Poramadulla Central College, Rikillagaskada",
     program: "G.C.E. Advanced Level (Physical Science Stream)",
     date: "2011 June - 2022",
-    logo: pccLogo,
-    image: pccimg,
+    logo: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771135530/pcclogo_hk9ftl.webp",
+    image: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771135534/pcc_nqxmqf.webp",
     location: "Rikillagaskada, Nuwara Eliya",
     // These are your bullet points for subjects
     subjects: [
