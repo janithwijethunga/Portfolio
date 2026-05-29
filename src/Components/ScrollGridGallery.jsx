@@ -67,15 +67,15 @@ const ScrollGridGallery = ({ images, centerImage, title, subtitle }) => {
   const layer3Images = images.slice(12, 14);
 
   const Tile = ({ img }) => (
-    <div className=" flex rounded-2xl border border-neutral-200 py-4 shadow-soft dark:border-neutral-800 dark:bg-neutral-900/70  items-center justify-center gap-3 text-center">
-      <span className="flex  items-center justify-center rounded-2xl bg-white  shadow-sm dark:bg-neutral-900">
+    <div className=" flex rounded-2xl border border-neutral-800 bg-neutral-900/70 py-4 shadow-soft items-center justify-center gap-3 text-center">
+      <span className="flex items-center justify-center rounded-2xl bg-neutral-900 shadow-sm">
         <img src={img.src} alt={img.name} className="h-20 w-16 object-contain" />
       </span>
       <div>
-        <p className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">
+        <p className="text-lg font-semibold text-neutral-100">
           {img.name}
         </p>
-        <p className="text-sm text-neutral-500 dark:text-neutral-400">
+        <p className="text-sm text-neutral-400">
           Professional
         </p>
       </div>

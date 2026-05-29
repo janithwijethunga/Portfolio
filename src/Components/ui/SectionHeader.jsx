@@ -11,12 +11,12 @@ const SectionHeader = ({ eyebrow, title, subtitle, align = "left" }) => {
         </p>
       )}
       {title && (
-        <h2 className="text-3xl font-semibold text-neutral-900 dark:text-neutral-100 md:text-4xl">
+        <h2 className="text-3xl font-semibold text-neutral-100 md:text-4xl">
           {title}
         </h2>
       )}
       {subtitle && (
-        <p className={cn("text-base text-neutral-600 dark:text-neutral-300 md:text-lg", align === "center" && "mx-auto max-w-2xl")}>{subtitle}</p>
+        <p className={cn("text-base text-neutral-300 md:text-lg", align === "center" && "mx-auto max-w-2xl")}>{subtitle}</p>
       )}
     </div>
   );

@@ -37,10 +37,10 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-[9999]">
       <div className="mx-auto w-full">
-        <div className="flex items-center justify-between px-5 py-3 dark:border-neutral-800 bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md">{" "}
+        <div className="flex items-center justify-between px-5 py-3 bg-neutral-900/80 backdrop-blur-md">{" "}
           <Link
             to="/"
-            className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-900 dark:text-neutral-100"
+            className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-100"
           >
             Janith Wijethunga
           </Link>
@@ -51,7 +51,7 @@ const Navbar = () => {
                 <button
                   type="button"
                   onClick={() => onScroll(item.id)}
-                  className="text-sm font-medium text-neutral-600 transition hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
+                  className="text-sm font-medium text-neutral-300 transition hover:text-neutral-100"
                 >
                   {item.name}
                 </button>
@@ -74,7 +74,7 @@ const Navbar = () => {
           <button
             type="button"
             onClick={() => setIsOpen((prev) => !prev)}
-            className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 text-neutral-700 transition hover:bg-neutral-100 md:hidden dark:border-neutral-700 dark:text-neutral-200 dark:hover:bg-neutral-800"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-neutral-700 text-neutral-200 transition hover:bg-neutral-800 md:hidden"
             aria-label="Toggle menu"
           >
             <span className="text-lg">{isOpen ? "-" : "+"}</span>

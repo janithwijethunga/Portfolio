@@ -27,7 +27,7 @@ const ContactSection = () => {
         >
           <motion.div variants={fadeUp} className="space-y-6">
             <Card className="space-y-4">
-              <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">Contact cards</h3>
+              <h3 className="text-lg font-semibold text-neutral-100">Contact cards</h3>
               <div className="grid gap-3">
                 {contactCards.map((item) => (
                   <a
@@ -35,7 +35,7 @@ const ContactSection = () => {
                     href={item.href}
                     target={item.href.startsWith("http") ? "_blank" : undefined}
                     rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-sm text-neutral-700 transition hover:border-primary-400 hover:text-neutral-900 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200"
+                    className="rounded-2xl border border-neutral-800 bg-neutral-900 px-4 py-3 text-sm text-neutral-200 transition hover:border-primary-400 hover:text-neutral-100"
                   >
                     <p className="text-xs uppercase tracking-[0.3em] text-neutral-400">{item.label}</p>
                     <p className="mt-1 font-semibold">{item.value}</p>
@@ -48,7 +48,7 @@ const ContactSection = () => {
 
           <motion.div variants={fadeUp}>
             <Card>
-              <h3 className="text-lg font-semibold text-neutral-900 dark:text-neutral-100">Get in Touch</h3>
+              <h3 className="text-lg font-semibold text-neutral-100">Get in Touch</h3>
               <form className="space-y-4">
                 <Input type="text" placeholder="Your Name" aria-label="Your Name" />
                 <Input type="email" placeholder="Your Email" aria-label="Your Email" />

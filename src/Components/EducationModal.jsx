@@ -25,7 +25,7 @@ const EducationModal = ({ isOpen, onClose, item }) => {
       onClick={onClose}
     >
       <div
-        className="relative w-full max-w-5xl bg-white dark:bg-neutral-900 rounded-2xl shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300 border border-neutral-200 dark:border-neutral-800"
+        className="relative w-full max-w-5xl rounded-2xl border border-neutral-800 bg-neutral-900 shadow-2xl overflow-hidden animate-in fade-in zoom-in duration-300"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
@@ -46,7 +46,7 @@ const EducationModal = ({ isOpen, onClose, item }) => {
           <div className="absolute inset-0 bg-gradient-to-t from-neutral-900 via-neutral-900/40 to-transparent" />
 
           <div className="absolute bottom-6 left-8 flex items-end gap-5">
-            <div className="h-20 w-20 overflow-hidden rounded-2xl bg-white p-2 shadow-xl border border-neutral-200">
+            <div className="h-20 w-20 overflow-hidden rounded-2xl bg-neutral-900 p-2 shadow-xl border border-neutral-800">
               <img
                 src={item.logo}
                 alt="logo"
@@ -80,7 +80,7 @@ const EducationModal = ({ isOpen, onClose, item }) => {
                       (sub, i) => (
                         <li
                           key={i}
-                          className="flex items-center gap-3 text-neutral-700 dark:text-neutral-300"
+                          className="flex items-center gap-3 text-neutral-300"
                         >
                           <span className="h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
                           {sub}
@@ -106,7 +106,7 @@ const EducationModal = ({ isOpen, onClose, item }) => {
                     ].map((act, i) => (
                       <li
                         key={i}
-                        className="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400"
+                          className="flex items-center gap-2 text-sm text-neutral-400"
                       >
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                         {act}
@@ -116,14 +116,14 @@ const EducationModal = ({ isOpen, onClose, item }) => {
                 </div>
               </div>
 
-              <div className="pt-5 border-t border-neutral-100 dark:border-neutral-800">
-                <p className="text-neutral-600 dark:text-neutral-400 leading-relaxed">
+              <div className="pt-5 border-t border-neutral-800">
+                <p className="text-neutral-400 leading-relaxed">
                   Successfully completed G.C.E. A/Ls in{" "}
-                  <span className="text-neutral-900 dark:text-white font-extrabold">
+                  <span className="text-neutral-100 font-extrabold">
                     2021
                   </span>{" "}
                   within the Physical Science stream. Completed G.C.E. O/Ls in{" "}
-                  <span className="text-neutral-900 dark:text-white font-extrabold">
+                  <span className="text-neutral-100 font-extrabold">
                     2016
                   </span>
                   .
@@ -139,16 +139,16 @@ const EducationModal = ({ isOpen, onClose, item }) => {
                 {item.curriculum?.map((yearData, idx) => (
                   <div
                     key={idx}
-                    className="p-4 rounded-xl border border-neutral-100 dark:border-neutral-800 bg-neutral-50/50 dark:bg-neutral-800/30"
+                    className="p-4 rounded-xl border border-neutral-800 bg-neutral-800/30"
                   >
-                    <h4 className="text-blue-600 dark:text-blue-400 font-bold text-xs uppercase mb-3 tracking-wider">
+                    <h4 className="text-blue-400 font-bold text-xs uppercase mb-3 tracking-wider">
                       {yearData.year}
                     </h4>
                     <ul className="space-y-1">
                       {yearData.modules.map((mod, i) => (
                         <li
                           key={i}
-                          className="text-[12px] text-neutral-600 dark:text-neutral-400 flex items-start gap-2"
+                          className="text-[12px] text-neutral-400 flex items-start gap-2"
                         >
                           <span className="mt-1.5 h-1 w-1 rounded-full bg-neutral-400" />
                           {mod}
@@ -158,14 +158,14 @@ const EducationModal = ({ isOpen, onClose, item }) => {
                   </div>
                 ))}
               </div>
-              <div className="pt-5 border-t border-neutral-100 dark:border-neutral-800">
-                <p className="text-neutral-700 dark:text-neutral-300 text-sm">
+              <div className="pt-5 border-t border-neutral-800">
+                <p className="text-neutral-300 text-sm">
                   Commenced studies in{" "}
-                  <span className="text-neutral-900 dark:text-white font-bold">
+                  <span className="text-neutral-100 font-bold">
                     2022 June
                   </span>
                   . On track to graduate in{" "}
-                  <span className="text-neutral-900 dark:text-white font-bold">
+                  <span className="text-neutral-100 font-bold">
                     2026 September
                   </span>
                   .

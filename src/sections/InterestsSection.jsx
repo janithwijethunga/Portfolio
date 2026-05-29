@@ -1,7 +1,4 @@
-// ✅ NOTE: I DID NOT REMOVE anything from your code.
-// ✅ I ONLY fixed particles to feel like "space dive" (3D starfield) + keep them moving with scroll.
-
-import { act, useLayoutEffect, useRef } from "react"; // act is imported but not used (can stay)
+import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -21,228 +18,208 @@ const InterestsSection = () => {
       return;
 
     const ctx = gsap.context(() => {
-      const wrap = cardsWrapRef.current;
-      const cards = gsap.utils.toArray(wrap.children);
-
+      const cards = gsap.utils.toArray(cardsWrapRef.current.children);
       const particles = gsap.utils.toArray(particlesRef.current.children);
 
-      // ✅ 3D feel
-      gsap.set(sectionRef.current, { perspective: 1000 });
-      gsap.set(wrap, { transformStyle: "preserve-3d" });
+      // Set 3D Context
+      gsap.set(sectionRef.current, { perspective: 1500 });
+      gsap.set(cardsWrapRef.current, { transformStyle: "preserve-3d" });
 
-      // ----------------------------
-      // ✅ STARFIELD (Particles) 3D Dive Setup
-      // ----------------------------
-      const STAR_COUNT = particles.length;
-      const fov = 420; // perspective factor (bigger = less dramatic)
-      const zMin = -2400;
-      const zMax = 320;
+      // -------------------------------------------------------------
+      // 🌌 1. BACKGROUND: Rotating Starfield (එහෙම්මමයි)
+      // -------------------------------------------------------------
+      const starData = particles.map((el) => {
+        const angle = Math.random() * Math.PI * 2;
+        const radius = gsap.utils.random(100, window.innerWidth * 0.9);
+        const depth = gsap.utils.random(-800, 100);
+        const speed = gsap.utils.random(0.3, 1.2);
 
-      // ✅ keep star data
-      const stars = particles.map((el) => {
-        // spread around center
-        const x = gsap.utils.random(-window.innerWidth * 0.7, window.innerWidth * 0.7);
-        const y = gsap.utils.random(-window.innerHeight * 0.7, window.innerHeight * 0.7);
-        const z = gsap.utils.random(zMin, 0);
-
-        // base size + brightness
-        const base = gsap.utils.random(0.35, 1.4);
-        const a = gsap.utils.random(0.35, 0.95);
-
-        // put all at screen center; we’ll move using translate3d
         gsap.set(el, {
           left: "50%",
           top: "50%",
           xPercent: -50,
           yPercent: -50,
-          opacity: a,
-          willChange: "transform, opacity",
+          opacity: gsap.utils.random(0.2, 0.8),
+          willChange: "transform",
         });
 
-        return { el, x, y, z, base, a };
+        return { el, angle, radius, depth, speed };
       });
 
-      // ✅ super fast setters
-      const setX = particles.map((el) => gsap.quickSetter(el, "x", "px"));
-      const setY = particles.map((el) => gsap.quickSetter(el, "y", "px"));
-      const setZ = particles.map((el) => gsap.quickSetter(el, "z", "px"));
-      const setS = particles.map((el) => gsap.quickSetter(el, "scale"));
-      const setO = particles.map((el) => gsap.quickSetter(el, "opacity"));
+      const setStarX = particles.map((el) => gsap.quickSetter(el, "x", "px"));
+      const setStarY = particles.map((el) => gsap.quickSetter(el, "y", "px"));
+      const setStarZ = particles.map((el) => gsap.quickSetter(el, "z", "px"));
 
-      const project = (star) => {
-        // perspective projection
-        const p = fov / (fov - star.z); // z closer to 0 => p bigger
-        const sx = star.x * p;
-        const sy = star.y * p;
-
-        // scale grows as it comes closer
-        const sc = star.base * p;
-
-        // slight opacity boost when close (but clamp)
-        const op = Math.min(1, Math.max(0.5, star.a * (0.55 + p * 0.6)));
-
-        return { sx, sy, sc, op };
+      const renderStars = (scrollProgress) => {
+        starData.forEach((star, i) => {
+          const currentAngle = star.angle + scrollProgress * 5 * star.speed;
+          setStarX[i](Math.cos(currentAngle) * star.radius);
+          setStarY[i](Math.sin(currentAngle) * star.radius);
+          setStarZ[i](star.depth);
+        });
       };
 
-      // initial render (particles visible immediately)
-      stars.forEach((s, i) => {
-        const { sx, sy, sc, op } = project(s);
-        setX[i](sx);
-        setY[i](sy);
-        setZ[i](s.z);
-        setS[i](sc);
-        setO[i](op);
-      });
-
-      // ----------------------------
-      // ✅ MAIN TIMELINE (Cards) + SAME ScrollTrigger updates starfield
-      // ----------------------------
-      const zoomDur = 100;
-      const overlap = zoomDur * 0.7;
-
-      let t = 0;
+      // -------------------------------------------------------------
+      // 💳 2. CARDS: Initial State (වටේ විසිරිලා තියෙන එක - එහෙම්මමයි)
+      // -------------------------------------------------------------
       cards.forEach((card, i) => {
-        const dir = i % 2 === 0 ? 1 : -1;
+        const cardAngle = (i / cards.length) * Math.PI * 2;
+        const startDist = Math.max(window.innerWidth, window.innerHeight) * 0.8; 
 
-        // keep stacking
-        gsap.set(card, { zIndex: cards.length - i });
-
-        // start state
-        gsap.set(card, { scale: 0, x: 0, y: 50 });
-
-        t += zoomDur - overlap;
+        gsap.set(card, {
+          left: "50%",
+          top: "50%",
+          xPercent: -50,
+          yPercent: -50,
+          x: Math.cos(cardAngle) * startDist,
+          y: Math.sin(cardAngle) * startDist,
+          z: gsap.utils.random(-400, -100), 
+          rotationX: gsap.utils.random(-45, 45),
+          rotationY: gsap.utils.random(-45, 45),
+          rotationZ: gsap.utils.random(-30, 30),
+          opacity: 0,
+        });
       });
 
-      // estimate full scroll length
-      const totalCardsSpan = (zoomDur - overlap) * cards.length + overlap;
-
-      let prevProgress = 0;
-
+      // -------------------------------------------------------------
+      // ⚙️ 3. SCROLLTRIGGER TIMELINE: Inbound Convergence (එහෙම්මමයි)
+      // -------------------------------------------------------------
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: () => `+=${window.innerHeight * (interests.length * 1.5)}`,
+          end: () => `+=${window.innerHeight * 2.0}`, 
           pin: true,
           scrub: 1,
           invalidateOnRefresh: true,
-
-          // ✅ THIS makes particles move ALWAYS while scroll drives the timeline
           onUpdate: (self) => {
-            const p = self.progress;
-            const dp = p - prevProgress;
-            prevProgress = p;
-
-            // scroll forward => stars come towards you
-            // (tweak travel multiplier for speed)
-            const travel = dp * 2800;
-
-            stars.forEach((s, i) => {
-              s.z += travel;
-
-              // wrap: when pass viewer, send back deep
-              if (s.z > zMax) s.z = zMin;
-              if (s.z < zMin) s.z = zMax; // for reverse scroll
-
-              const { sx, sy, sc, op } = project(s);
-              setX[i](sx);
-              setY[i](sy);
-              setZ[i](s.z);
-              setS[i](sc);
-              setO[i](op);
-            });
+            renderStars(self.progress); 
           },
         },
       });
 
-      // ✅ animate cards on the SAME timeline
-      let cursor = 0;
+      // අලුත් premium card size එකට ගැලපෙන්න width/height පොඩ්ඩක් හැදුවා
+      const isMobile = window.innerWidth < 640;
+      const cols = isMobile ? 2 : Math.min(4, cards.length);
+      const cardWidth = isMobile ? 160 : 240;
+      const cardHeight = isMobile ? 140 : 180;
+      const gap = isMobile ? 16 : 28;
+
       cards.forEach((card, i) => {
-        const dir = i % 2 === 0 ? 1 : -1;
+        const col = i % cols;
+        const row = Math.floor(i / cols);
+        const totalRows = Math.ceil(cards.length / cols);
 
-        tl.set(card, { zIndex: cards.length - i }, cursor);
+        const targetX = (col - (cols - 1) / 2) * (cardWidth + gap);
+        const targetY = (row - (totalRows - 1) / 2) * (cardHeight + gap);
 
-        tl.fromTo(
-          card,
-          { scale: 0, x: 0, y: 50 },
-          {
-            scale: 10,
-            x: window.innerWidth * 1.5 * dir,
-            y: 400,
-            duration: zoomDur,
-            ease: "power3.in",
-          },
-          cursor
-        );
-
-        cursor += zoomDur - overlap;
+        tl.to(card, {
+          x: targetX,
+          y: targetY,
+          z: 0,
+          rotationX: 0,
+          rotationY: 0,
+          rotationZ: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 80,
+          ease: "power3.out",
+        }, 0);
       });
 
-      ScrollTrigger.refresh();
+      tl.to({}, { duration: 30 });
+
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section id="interests" ref={sectionRef} className="relative overflow-hidden">
-      {/* ✅ Particles Container */}
+    <section id="interests" ref={sectionRef} className="relative overflow-hidden bg-neutral-950 text-white select-none">
+      {/* 🌌 Rotating Starfield Background */}
       <div
         ref={particlesRef}
         className="pointer-events-none absolute inset-0 overflow-hidden"
         aria-hidden="true"
       >
-        {Array.from({ length: 500 }).map((_, i) => (
+        {Array.from({ length: 200 }).map((_, i) => (
           <span
             key={i}
-            className="absolute rounded-full bg-white"
+            className="absolute rounded-full bg-gradient-to-tr from-white to-indigo-300"
             style={{
-              width: `${Math.random() * 3.2 + 0.8}px`,
-              height: `${Math.random() * 3.2 + 0.8}px`,
+              width: `${Math.random() * 2.5 + 1}px`,
+              height: `${Math.random() * 2.5 + 1}px`,
+              boxShadow: Math.random() > 0.8 ? "0 0 6px #ffffff" : "none"
             }}
           />
         ))}
       </div>
 
-      {/* ✅ Content */}
-      <div className="sticky top-0 min-h-screen flex items-center py-20">
-        <Container className="space-y-12">
-          <div className="relative z-10">
-            <SectionHeader
-              eyebrow="Interests"
-              title="Areas I love to build in"
-              subtitle="Roles and topics that keep me inspired and curious."
-            />
-          </div>
+      {/* Content Layout */}
+      <div className="relative min-h-screen flex flex-col justify-between py-12 z-10">
+        <Container className="w-full">
+          <SectionHeader
+            eyebrow="Interests"
+            title="Areas I love to build in"
+            subtitle="Roles and topics that keep me inspired and curious."
+          />
+        </Container>
 
+        {/* 💳 Animation Stage Area */}
+        <div className="w-full flex-grow flex items-center justify-center relative my-auto">
           <div
             ref={cardsWrapRef}
-            className="relative w-full h-full sm:h-[360px] flex items-center justify-center perspective-[1000px]"
+            className="relative w-full max-w-5xl h-[480px] flex items-center justify-center"
           >
             {interests.map((item) => (
               <div
                 key={item.name}
-                className="
-                  absolute top-0 left-1/2 -translate-x-1/2
-                  flex items-center gap-4 rounded-2xl
-                  border border-neutral-200 bg-white/90 px-5 py-4
-                  text-sm font-semibold text-neutral-700 shadow-2xl
-                  dark:border-neutral-800 dark:bg-neutral-900/90 dark:text-neutral-200
-                "
+                className="absolute w-[160px] sm:w-[240px] h-[140px] sm:h-[180px] origin-center will-change-transform group"
               >
-                <div className="flex flex-col items-center justify-center gap-2">
-                  <img
-                    src={item.icon}
-                    alt={item.name}
-                    className="h-8 w-8 object-contain"
-                    loading="lazy"
-                  />
-                  <p>{item.name}</p>
+
+                {/* Neon Outer Border Container */}
+                <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-b from-neutral-800 via-neutral-900 to-neutral-950 group-hover:from-indigo-500 group-hover:via-purple-500 group-hover:to-cyan-400 transition-all duration-500 shadow-2xl group-hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]">
+                  
+                  {/* Glass Inside Body */}
+                  <div className="w-full h-full rounded-[15px] bg-neutral-900/80 group-hover:bg-neutral-950/95 backdrop-blur-xl p-5 flex flex-col items-center justify-center gap-4 transition-all duration-300 overflow-hidden relative">
+                    
+                    {/* Corner Minimal Dot Decor */}
+                    <div className="absolute top-2.5 right-2.5 w-1 h-1 rounded-full bg-neutral-800 group-hover:bg-indigo-400 transition-colors duration-300" />
+                    
+                    {/* Inner Ambient Glow on Hover */}
+                    <div className="absolute -bottom-8 -right-8 w-20 h-20 rounded-full bg-indigo-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                    {/* 3D Floating Icon wrapper */}
+                    <div className="p-3 rounded-xl bg-neutral-950/60 border border-neutral-800/80 group-hover:border-neutral-700/60 group-hover:bg-neutral-900/60 shadow-inner group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 ease-out shrink-0">
+                      <img
+                        src={item.icon}
+                        alt={item.name}
+                        className="h-7 w-7 sm:h-9 sm:w-9 object-contain filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)]"
+                        loading="lazy"
+                      />
+                    </div>
+
+                    {/* Text Element */}
+                    <div className="text-center">
+                      <h3 className="text-xs sm:text-sm font-semibold tracking-wide text-neutral-400 group-hover:text-white transition-colors duration-300 uppercase">
+                        {item.name}
+                      </h3>
+                      {item.description && (
+                        <p className="hidden sm:block mt-1 text-[11px] text-neutral-500 group-hover:text-neutral-400 line-clamp-2 transition-colors duration-300 leading-normal">
+                          {item.description}
+                        </p>
+                      )}
+                    </div>
+
+                  </div>
                 </div>
+                {/* 🌟 Card Design එක ඉවරයි */}
               </div>
             ))}
           </div>
-        </Container>
+        </div>
+        
+        <div className="h-4" />
       </div>
     </section>
   );

@@ -11,7 +11,7 @@ const SocialLinks = ({ className = "" }) => {
         <a
           key={link.label}
           href={link.href}
-          className="text-sm font-medium text-neutral-600 transition-colors hover:text-neutral-900 dark:text-neutral-300 dark:hover:text-neutral-100"
+          className="text-sm font-medium text-neutral-300 transition-colors hover:text-neutral-100"
           target={link.href.startsWith("http") ? "_blank" : undefined}
           rel={link.href.startsWith("http") ? "noreferrer" : undefined}
         >

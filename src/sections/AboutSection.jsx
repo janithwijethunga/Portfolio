@@ -34,7 +34,7 @@ const AboutSection = ({ aboutImageRef }) => {
               
           {/* LEFT — text */}
           <motion.div variants={fadeUp} className="space-y-6">
-            <div className="space-y-5 text-neutral-600 dark:text-neutral-300">
+            <div className="space-y-5 text-neutral-300">
               <p className="text-base leading-relaxed">
                 I am an undergraduate student pursuing a BSc (Hons) in Information
                 Technology at the Sri Lanka Institute of Information Technology.
@@ -56,8 +56,7 @@ const AboutSection = ({ aboutImageRef }) => {
               {["Full-Stack", "UI/UX", "React", "Node.js"].map((tag) => (
                 <span
                 key={tag}
-                className="rounded-full border border-neutral-200 bg-white/70 px-4 py-2 text-xs font-semibold text-neutral-700 shadow-soft backdrop-blur
-                dark:border-neutral-800 dark:bg-neutral-900/70 dark:text-neutral-200"
+                className="rounded-full border border-neutral-800 bg-neutral-900/70 px-4 py-2 text-xs font-semibold text-neutral-200 shadow-soft backdrop-blur"
                 >
                   {tag}
                 </span>

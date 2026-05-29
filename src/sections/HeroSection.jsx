@@ -180,9 +180,9 @@ export default function HeroAboutScroll() {
       >
       {/* background blobs */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-24 top-10 h-64 w-64 rounded-full bg-primary-200/40 blur-3xl dark:bg-primary-500/20" />
-        <div className="absolute right-0 top-24 h-72 w-72 rounded-full bg-neutral-200/50 blur-3xl dark:bg-neutral-800/50" />
-        <div className="absolute left-1/2 top-24 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-white/30 dark:bg-neutral-900/20" />
+        <div className="absolute -left-24 top-10 h-64 w-64 rounded-full bg-primary-500/20 blur-3xl" />
+        <div className="absolute right-0 top-24 h-72 w-72 rounded-full bg-neutral-800/50 blur-3xl" />
+        <div className="absolute left-1/2 top-24 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-neutral-900/20" />
       </div>
 
       <Container className="relative">
@@ -195,15 +195,15 @@ export default function HeroAboutScroll() {
                 {heroContent.greeting}
               </p>
 
-              <h1 className="text-4xl font-semibold text-neutral-900 dark:text-neutral-100 md:text-5xl lg:text-display-1">
+              <h1 className="text-4xl font-semibold text-neutral-100 md:text-5xl lg:text-display-1">
                 {heroContent.name}
               </h1>
 
-              <p className="text-base text-neutral-600 dark:text-neutral-300 md:text-body-lg">
+              <p className="text-base text-neutral-300 md:text-body-lg">
                 {heroContent.subtitle}
               </p>
 
-              <p className="text-base text-neutral-600 dark:text-neutral-300 md:text-body-lg">
+              <p className="text-base text-neutral-300 md:text-body-lg">
                 {heroContent.bio}
               </p>
 
@@ -230,7 +230,7 @@ export default function HeroAboutScroll() {
           {/* CENTER — image */}
           <div className="relative mx-auto flex w-full max-w-[440px] justify-center lg:justify-start">
             <div ref={imageWrapRef} className="relative will-change-transform">
-              <div className="absolute top-32 inset-0 translate-y-6 rounded-full bg-black/40 blur-2xl dark:bg-white/10" />
+              <div className="absolute top-32 inset-0 translate-y-6 rounded-full bg-white/10 blur-2xl" />
               <img
                 src={"https://res.cloudinary.com/dksfpirc6/image/upload/v1771135547/Me_sl9phq.webp"}
                 alt={heroContent.name}
@@ -251,8 +251,8 @@ export default function HeroAboutScroll() {
                 data-card
                 className={`absolute ${c.top} ${c.left} ${c.z} w-44 will-change-transform`}
               >
-                <div className="rounded-3xl border border-neutral-200 bg-white/70 p-4 shadow-soft backdrop-blur dark:border-neutral-800 dark:bg-neutral-900/70">
-                  <div className="overflow-hidden rounded-2xl dark:bg-neutral-800">
+                <div className="rounded-3xl border border-neutral-800 bg-neutral-900/70 p-4 shadow-soft backdrop-blur">
+                  <div className="overflow-hidden rounded-2xl bg-neutral-800">
                     <img
                       src={c.img}
                       alt={c.title}
@@ -260,7 +260,7 @@ export default function HeroAboutScroll() {
                     />
                   </div>
                   <div className="mt-3 flex items-center justify-center">
-                    <span className="rounded-full border border-neutral-200 bg-white px-3 py-1 text-xs font-semibold text-neutral-700 shadow-sm dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-200">
+                    <span className="rounded-full border border-neutral-800 bg-neutral-900 px-3 py-1 text-xs font-semibold text-neutral-200 shadow-sm">
                       {c.title}
                     </span>
                   </div>
