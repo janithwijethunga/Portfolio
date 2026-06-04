@@ -5,4 +5,3 @@ export { default as HeroSection } from "./HeroSection";
 export { default as InterestsSection } from "./InterestsSection";
 export { default as ProjectsSection } from "./ProjectsSection";
 export { default as SkillsSection } from "./SkillsSection";
-export { default as EmailSection } from "./EmailSection";

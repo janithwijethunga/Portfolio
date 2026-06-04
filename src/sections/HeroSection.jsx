@@ -73,7 +73,7 @@ export default function HeroAboutScroll() {
           const imgRect = imageWrap.getBoundingClientRect();
           const padding = 20;
 
-          const targetCenterX = sectionRect.right - padding - imgRect.width/1.5 ;
+          const targetCenterX = sectionRect.right - padding - imgRect.width/1.1 ;
           const currentCenterX = imgRect.left + imgRect.width;
           return targetCenterX - currentCenterX;
         };
@@ -176,7 +176,7 @@ export default function HeroAboutScroll() {
       <div id="home" className="absolute top-0" />
       <section
         ref={sectionRef}
-        className="relative overflow-hidden pb-16 pt-32"
+        className="relative overflow-hidden pb-16 pt-32 h-screen flex items-center"
       >
       {/* background blobs */}
       <div className="pointer-events-none absolute inset-0">

@@ -12,7 +12,6 @@ import {
   InterestsSection,
   ProjectsSection,
   SkillsSection,
-  EmailSection,
 } from "../sections";
 
 
@@ -64,7 +63,6 @@ const Homepage = () => {
       <EducationSection />
       <ProjectsSection />
       <ContactSection />
-      <EmailSection />
     </>
   );
 };
