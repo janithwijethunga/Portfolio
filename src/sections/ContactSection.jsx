@@ -1,69 +1,70 @@
-import { motion } from "framer-motion";
-import Button from "../Components/ui/Button";
-import Card from "../Components/ui/Card";
-import Container from "../Components/ui/Container";
-import Input from "../Components/ui/Input";
-import SectionHeader from "../Components/ui/SectionHeader";
-import Textarea from "../Components/ui/Textarea";
-import { fadeUp, stagger } from "../utils/motion";
+import React from "react";
+import { FiMail, FiGithub, FiLinkedin, FiArrowUpRight, FiFileText } from "react-icons/fi";
+import Card from "./../Components/ui/Card";
 import { contactCards } from "../data/contact";
 
-const ContactSection = () => {
+const ContactCards = () => {
+  // Icons ටික map කරගන්න labels චෙක් කරන function එක
+  const getIcon = (label) => {
+    switch (label.toLowerCase()) {
+      case "email":
+        return { icon: <FiMail className="w-5 h-5" />, color: "from-blue-500 to-indigo-500" };
+      case "github":
+        return { icon: <FiGithub className="w-5 h-5" />, color: "from-zinc-700 to-neutral-900" };
+      case "linkedin":
+        return { icon: <FiLinkedin className="w-5 h-5" />, color: "from-blue-600 to-cyan-500" };
+      default:
+        return { icon: <FiFileText className="w-5 h-5" />, color: "from-indigo-500 to-purple-500" };
+    }
+  };
+
   return (
-    <section id="contact" className="py-20">
-      <Container className="space-y-12">
-        <SectionHeader
-          eyebrow="Contact"
-          title="Let us build something meaningful"
-          subtitle="Reach out for collaborations, product work, or UI/UX engagements."
-        />
+    <section id="contact" className="min-h-screen w-full flex items-center justify-center px-6 py-16">
+      <Card className="max-w-5xl w-full p-6 md:p-8 bg-neutral-900/40 backdrop-blur-xl border-neutral-800/80 rounded-3xl flex justify-center relative overflow-hidden">
+        <div className="space-y-6 w-full">
+          <div className="space-y-1">
+            <h3 className="text-lg font-semibold text-neutral-100 uppercase tracking-wider">
+              Contact Me
+            </h3>
+          </div>
 
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          className="grid gap-8 lg:grid-cols-[1.1fr_1fr]"
-        >
-          <motion.div variants={fadeUp} className="space-y-6">
-            <Card className="space-y-4">
-              <h3 className="text-lg font-semibold text-neutral-100">Contact cards</h3>
-              <div className="grid gap-3">
-                {contactCards.map((item) => (
-                  <a
-                    key={item.label}
-                    href={item.href}
-                    target={item.href.startsWith("http") ? "_blank" : undefined}
-                    rel={item.href.startsWith("http") ? "noreferrer" : undefined}
-                    className="rounded-2xl border border-neutral-800 bg-neutral-900 px-4 py-3 text-sm text-neutral-200 transition hover:border-primary-400 hover:text-neutral-100"
-                  >
-                    <p className="text-xs uppercase tracking-[0.3em] text-neutral-400">{item.label}</p>
-                    <p className="mt-1 font-semibold">{item.value}</p>
-                  </a>
-                ))}
-              </div>
-            </Card>
-       
-          </motion.div>
+          {/* Icons Grid Layout */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+            {contactCards.map((item) => {
+              const iconMeta = getIcon(item.label);
+              return (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                  className="group relative rounded-2xl border border-neutral-800/80 bg-neutral-950/40 p-5 flex flex-col justify-between items-start overflow-hidden transition-all duration-500 hover:border-neutral-700 hover:-translate-y-1 shadow-2xl"
+                >
+                  <div className="absolute -bottom-10 -left-10 w-24 h-24 rounded-full bg-indigo-500/5 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-          <motion.div variants={fadeUp}>
-            <Card>
-              <h3 className="text-lg font-semibold text-neutral-100">Get in Touch</h3>
-              <form className="space-y-4">
-                <Input type="text" placeholder="Your Name" aria-label="Your Name" />
-                <Input type="email" placeholder="Your Email" aria-label="Your Email" />
-                <Input type="text" placeholder="Subject" aria-label="Subject" />
-                <Textarea rows={5} placeholder="Your Message" aria-label="Your Message" />
-                <Button type="submit" className="w-full">
-                  Send
-                </Button>
-              </form>
-            </Card>
-          </motion.div>
-        </motion.div>
-      </Container>
+                  <div className={`p-3 rounded-xl bg-neutral-950 border border-neutral-800 text-neutral-400 group-hover:text-white group-hover:border-neutral-700 shadow-inner transition-all duration-300 group-hover:scale-105 bg-gradient-to-br ${iconMeta.color}`}>
+                    {iconMeta.icon}
+                  </div>
+
+                  <div className="w-full pt-6 space-y-1 relative z-10">
+                    <div className="flex items-center justify-between w-full">
+                      <p className="text-[10px] font-mono font-bold uppercase tracking-[0.15em] text-neutral-500">
+                        {item.label}
+                      </p>
+                      <FiArrowUpRight className="w-3.5 h-3.5 text-neutral-600 group-hover:text-indigo-400 transition-colors transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
+                    <p className="mt-1 font-semibold text-sm text-neutral-300 group-hover:text-white transition-colors truncate tracking-tight max-w-full">
+                      {item.value}
+                    </p>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        </div>
+      </Card>
     </section>
   );
 };
 
-export default ContactSection;
+export default ContactCards;

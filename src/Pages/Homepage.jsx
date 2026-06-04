@@ -12,8 +12,9 @@ import {
   InterestsSection,
   ProjectsSection,
   SkillsSection,
+  EmailSection,
 } from "../sections";
-// import CoordOverlay from "../Components/ui/CoordOverlay";
+
 
 const Homepage = () => {
   const location = useLocation();
@@ -63,6 +64,7 @@ const Homepage = () => {
       <EducationSection />
       <ProjectsSection />
       <ContactSection />
+      <EmailSection />
     </>
   );
 };

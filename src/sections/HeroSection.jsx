@@ -230,7 +230,7 @@ export default function HeroAboutScroll() {
           {/* CENTER — image */}
           <div className="relative mx-auto flex w-full max-w-[440px] justify-center lg:justify-start">
             <div ref={imageWrapRef} className="relative will-change-transform">
-              <div className="absolute top-32 inset-0 translate-y-6 rounded-full bg-white/10 blur-2xl" />
+            
               <img
                 src={"https://res.cloudinary.com/dksfpirc6/image/upload/v1771135547/Me_sl9phq.webp"}
                 alt={heroContent.name}

@@ -176,7 +176,7 @@ const InterestsSection = () => {
                 key={item.name}
                 className="absolute w-[160px] sm:w-[240px] h-[140px] sm:h-[180px] origin-center will-change-transform group"
               >
-
+                {/* 🌟 මෙන්න සුපිරි Card Design එක විතරක් වෙනස් කළා */}
                 {/* Neon Outer Border Container */}
                 <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-b from-neutral-800 via-neutral-900 to-neutral-950 group-hover:from-indigo-500 group-hover:via-purple-500 group-hover:to-cyan-400 transition-all duration-500 shadow-2xl group-hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]">
                   

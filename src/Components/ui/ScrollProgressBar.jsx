@@ -74,7 +74,7 @@ export default function ScrollDotPoints({
   }, [arc, tailPx, gapPx, scrollFactor]);
 
   return (
-    <div className="pointer-events-none fixed inset-0 z-[0]">
+    <div className="pointer-events-none fixed inset-0 z-[40]">
       <svg className="h-full w-full">
         {/* debug path */}
         {showPath && debugPathD && (
