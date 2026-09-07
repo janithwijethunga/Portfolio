@@ -55,7 +55,7 @@ const Homepage = () => {
   return (
     <>
       {/* <CoordOverlay/> */}
-      <ScrollProgressBar side="left" orbitRadius={18} turns={10} />
+      {/* <ScrollProgressBar side="left" orbitRadius={18} turns={10} /> */}
       {/* ✅ green vertical scrollbar */}
       <HeroAboutScroll />
       <SkillsSection />
