@@ -7,6 +7,7 @@ import SectionHeader from "../Components/ui/SectionHeader";
 import Button from "../Components/ui/Button";
 import { fadeUp, stagger } from "../utils/motion";
 import { aboutContent } from "../data/about";
+import { MdFileDownload } from "react-icons/md";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,9 +21,7 @@ const AboutSection = ({ aboutImageRef }) => {
   return (
     <section id="about" className="py-20">
       <Container className="space-y-4">
-        <SectionHeader
-          title={aboutContent.headline}
-        />
+        <SectionHeader title={aboutContent.headline} />
 
         <motion.div
           variants={stagger}
@@ -31,32 +30,33 @@ const AboutSection = ({ aboutImageRef }) => {
           viewport={{ once: true, amount: 0.2 }}
           className="grid items-center gap-10 lg:grid-cols-[1.05fr_0.95fr]"
         >
-              
           {/* LEFT — text */}
           <motion.div variants={fadeUp} className="space-y-6">
             <div className="space-y-5 text-neutral-300">
               <p className="text-base leading-relaxed">
-                I am an undergraduate student pursuing a BSc (Hons) in Information
-                Technology at the Sri Lanka Institute of Information Technology.
+                I am an undergraduate student pursuing a BSc (Hons) in
+                Information Technology at the Sri Lanka Institute of Information
+                Technology.
               </p>
 
               <p className="text-base leading-relaxed">
                 Passionate about Fullstack Development and UX/UI Design, I enjoy
-                working in collaborative environments, learning new technologies,
-                and delivering high-quality results.
+                working in collaborative environments, learning new
+                technologies, and delivering high-quality results.
               </p>
 
               <p className="text-base leading-relaxed">
-                Driven by challenges, I aim to grow personally and professionally
-                while contributing positively to any team or organization I join.
+                Driven by challenges, I aim to grow personally and
+                professionally while contributing positively to any team or
+                organization I join.
               </p>
             </div>
 
             <div className="flex flex-wrap gap-3 pt-2">
               {["Full-Stack", "UI/UX", "React", "Node.js"].map((tag) => (
                 <span
-                key={tag}
-                className="rounded-full border border-neutral-800 bg-neutral-900/70 px-4 py-2 text-xs font-semibold text-neutral-200 shadow-soft backdrop-blur"
+                  key={tag}
+                  className="rounded-full border border-neutral-800 bg-neutral-900/70 px-4 py-2 text-xs font-semibold text-neutral-200 shadow-soft backdrop-blur"
                 >
                   {tag}
                 </span>
@@ -64,8 +64,15 @@ const AboutSection = ({ aboutImageRef }) => {
             </div>
 
             <div className="pt-2">
-              <Button as="a" href="#contact" variant="secondary">
-                Download CV
+              <Button
+                as="a"
+                href="/Resume.pdf"
+                variant="secondary"
+                download="Janith Wijethunga Resume.pdf"
+                className="inline-flex items-center gap-2"
+              >
+                <span>Download CV</span>
+                <MdFileDownload className="w-4 h-4 text-neutral-300" />
               </Button>
             </div>
           </motion.div>

@@ -167,7 +167,7 @@ const InterestsSection = () => {
             {interests.map((item) => (
               <div
                 key={item.name}
-                className="absolute w-[160px] sm:w-[240px] h-[140px] sm:h-[180px] origin-center will-change-transform group"
+                className="absolute w-1/3 sm:w-[240px] h-[140px] sm:h-[180px] origin-center will-change-transform group"
               >
                 {/* Neon Outer Border Container */}
                 <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-b from-neutral-800 via-neutral-900 to-neutral-950 group-hover:from-indigo-500 group-hover:via-purple-500 group-hover:to-cyan-400 transition-all duration-500 shadow-2xl group-hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]">
@@ -186,7 +186,7 @@ const InterestsSection = () => {
                       <img
                         src={item.icon}
                         alt={item.name}
-                        className="rounded-xl w-36 h-20 object-contain filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)]"
+                        className="rounded-xl w-64 h-28 filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)]"
                         loading="lazy"
                       />
                     </div>

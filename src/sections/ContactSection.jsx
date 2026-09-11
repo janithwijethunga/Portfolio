@@ -6,7 +6,8 @@ import {
   FiArrowUpRight,
   FiFileText,
   FiSend,
-  FiTerminal,
+  FiPhone,
+  FiFacebook,
 } from "react-icons/fi";
 import Button from "./../Components/ui/Button";
 import Card from "./../Components/ui/Card";
@@ -22,6 +23,11 @@ const ContactSection = () => {
           icon: <FiMail className="w-4 h-4" />,
           color: "text-blue-400 bg-blue-500/10 border-blue-500/25 shadow-blue-500/10",
         };
+      case "phone":
+        return {
+          icon: <FiPhone className="w-4 h-4" />,
+          color: "text-blue-400 bg-blue-500/10 border-blue-500/25 shadow-blue-500/10",
+        };
       case "github":
         return {
           icon: <FiGithub className="w-4 h-4" />,
@@ -30,6 +36,11 @@ const ContactSection = () => {
       case "linkedin":
         return {
           icon: <FiLinkedin className="w-4 h-4" />,
+          color: "text-sky-400 bg-sky-500/10 border-sky-500/25 shadow-sky-500/10",
+        };
+      case "facebook":
+        return {
+          icon: <FiFacebook  className="w-4 h-4" />,
           color: "text-sky-400 bg-sky-500/10 border-sky-500/25 shadow-sky-500/10",
         };
       default:
@@ -68,11 +79,11 @@ const ContactSection = () => {
 
           <div className="grid w-full grid-cols-1 lg:grid-cols-12">
             {/* ================= LEFT CONTROLS PANEL (35% Width) ================= */}
-            <div className="relative flex flex-col justify-between border-b border-neutral-800/70 bg-neutral-950/55 p-6 md:p-8 lg:col-span-5 lg:h-[650px] lg:border-b-0 lg:border-r">
+            <div className="relative flex flex-col border-b border-neutral-800/70 bg-neutral-950/55 p-6 md:p-8 lg:col-span-5 lg:h-[580px] lg:border-b-0 lg:border-r">
               <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(99,102,241,0.12),transparent_32%)]" />
 
               {/* Header Info */}
-              <div className="relative space-y-5">
+              <div className="relative space-y-5 mb-10">
                 <div className="space-y-3">
                   <h3 className="text-4xl font-black uppercase italic leading-[0.9] tracking-tighter text-white md:text-5xl lg:text-4xl">
                     Let's Build <br />
@@ -80,10 +91,6 @@ const ContactSection = () => {
                       Something Real.
                     </span>
                   </h3>
-
-                  <p className="max-w-sm pt-1 text-sm font-light leading-relaxed text-neutral-500">
-                    Have an idea, project, or just want to sync up? Ping me through the terminal matrix or standard ports.
-                  </p>
                 </div>
               </div>
 
@@ -130,14 +137,14 @@ const ContactSection = () => {
             </div>
 
             {/* ================= RIGHT TRANSMISSION GRID (65% Width) ================= */}
-            <div className="relative flex flex-col justify-between bg-neutral-900/20 p-6 md:p-8 lg:col-span-7 lg:h-[650px]">
+            <div className="relative flex flex-col justify-between bg-neutral-900/20 p-6 lg:col-span-7 ">
               {/* Subtle Decorative Background Corner Grid lines */}
               <div className="pointer-events-none absolute right-0 top-0 h-40 w-40 bg-[radial-gradient(rgba(255,255,255,0.12)_1px,transparent_1px)] opacity-20 [background-size:9px_9px]" />
               <div className="pointer-events-none absolute bottom-0 left-0 h-40 w-40 bg-[radial-gradient(rgba(99,102,241,0.18)_1px,transparent_1px)] opacity-20 [background-size:10px_10px]" />
 
               {/* Inputs Section Wrapper with Grid layout for Name/Email */}
               <form
-                className="relative flex flex-grow flex-col justify-center space-y-6 py-8"
+                className="relative flex flex-grow flex-col justify-center space-y-6"
                 onSubmit={(e) => e.preventDefault()}
               >
                 <div className="space-y-5">

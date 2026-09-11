@@ -90,7 +90,11 @@ const AdvancedScroll = () => {
         className="bg-neutral-950 text-white selection:bg-indigo-500 selection:text-white"
       >
         {/* MASTER SCROLL TIMELINE ARENA */}
-        <div ref={triggerRef} className="relative h-screen w-full overflow-hidden">
+        <div
+          id="projects"
+          ref={triggerRef}
+          className="relative h-screen w-full overflow-hidden"
+        >
           
           {/* TOP MODERN HUD NAVBAR */}
           <div className="absolute top-16 left-8 md:left-16 right-8 md:right-16 flex justify-between items-center z-50 pointer-events-none">
