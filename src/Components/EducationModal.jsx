@@ -15,9 +15,9 @@ const EducationModal = ({ isOpen, onClose, item }) => {
 
   if (!isOpen || !item) return null;
 
-  // Helper to check which school we are displaying
-  const isPCC = item.school.includes("Poramadulla");
-  const isSLIIT = item.school.includes("SLIIT");
+  // Identification helpers
+  const isPCC = item.school?.includes("Poramadulla");
+  const isSLIIT = item.school?.includes("SLIIT");
 
   return (
     <div
@@ -31,13 +31,13 @@ const EducationModal = ({ isOpen, onClose, item }) => {
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 p-2 rounded-full bg-black/20 hover:bg-black/40 transition-colors border border-white/10"
+          className="absolute top-2 right-4 z-20 p-2 rounded-full bg-black/20 hover:bg-black/40 transition-colors border border-white/10"
         >
           <MdClose className="w-5 h-5 text-white" />
         </button>
 
         {/* Header Image Section */}
-        <div className="relative h-56 w-full">
+        <div className="relative h-36 w-full">
           <img
             src={item.image}
             alt={item.school}
@@ -73,20 +73,18 @@ const EducationModal = ({ isOpen, onClose, item }) => {
                 {/* A/L Subjects */}
                 <div>
                   <h3 className="text-xs font-bold text-neutral-500 uppercase tracking-[0.2em] mb-4">
-                    Core Subjects
+                    A/L Subjects
                   </h3>
                   <ul className="grid grid-cols-1 gap-3">
-                    {["Combined Mathematics", "Physics", "Chemistry"].map(
-                      (sub, i) => (
-                        <li
-                          key={i}
-                          className="flex items-center gap-3 text-neutral-300"
-                        >
-                          <span className="h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
-                          {sub}
-                        </li>
-                      ),
-                    )}
+                    {item.subjects?.map((sub, i) => (
+                      <li
+                        key={i}
+                        className="flex items-center gap-3 text-neutral-300"
+                      >
+                        <span className="h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.6)]" />
+                        {sub}
+                      </li>
+                    ))}
                   </ul>
                 </div>
 
@@ -96,17 +94,10 @@ const EducationModal = ({ isOpen, onClose, item }) => {
                     Extracurriculars
                   </h3>
                   <ul className="grid grid-cols-2 gap-2">
-                    {[
-                      "St. John Ambulance",
-                      "Scouts",
-                      "Cricket",
-                      "Elle",
-                      "Wrestling",
-                      "Music",
-                    ].map((act, i) => (
+                    {item.activities?.map((act, i) => (
                       <li
                         key={i}
-                          className="flex items-center gap-2 text-sm text-neutral-400"
+                        className="flex items-center gap-2 text-sm text-neutral-400"
                       >
                         <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                         {act}
@@ -118,15 +109,7 @@ const EducationModal = ({ isOpen, onClose, item }) => {
 
               <div className="pt-5 border-t border-neutral-800">
                 <p className="text-neutral-400 leading-relaxed">
-                  Successfully completed G.C.E. A/Ls in{" "}
-                  <span className="text-neutral-100 font-extrabold">
-                    2021
-                  </span>{" "}
-                  within the Physical Science stream. Completed G.C.E. O/Ls in{" "}
-                  <span className="text-neutral-100 font-extrabold">
-                    2016
-                  </span>
-                  .
+                  {item.detail}
                 </p>
               </div>
             </div>
@@ -159,17 +142,7 @@ const EducationModal = ({ isOpen, onClose, item }) => {
                 ))}
               </div>
               <div className="pt-5 border-t border-neutral-800">
-                <p className="text-neutral-300 text-sm">
-                  Commenced studies in{" "}
-                  <span className="text-neutral-100 font-bold">
-                    2022 June
-                  </span>
-                  . On track to graduate in{" "}
-                  <span className="text-neutral-100 font-bold">
-                    2026 September
-                  </span>
-                  .
-                </p>
+                <p className="text-neutral-300 text-sm">{item.detail}</p>
               </div>
             </div>
           )}

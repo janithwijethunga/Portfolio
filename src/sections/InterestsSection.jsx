@@ -25,9 +25,7 @@ const InterestsSection = () => {
       gsap.set(sectionRef.current, { perspective: 1500 });
       gsap.set(cardsWrapRef.current, { transformStyle: "preserve-3d" });
 
-      // -------------------------------------------------------------
-      // 🌌 1. BACKGROUND: Rotating Starfield (එහෙම්මමයි)
-      // -------------------------------------------------------------
+      // 🌌 1. BACKGROUND: Rotating Starfield
       const starData = particles.map((el) => {
         const angle = Math.random() * Math.PI * 2;
         const radius = gsap.utils.random(100, window.innerWidth * 0.9);
@@ -59,9 +57,7 @@ const InterestsSection = () => {
         });
       };
 
-      // -------------------------------------------------------------
-      // 💳 2. CARDS: Initial State (වටේ විසිරිලා තියෙන එක - එහෙම්මමයි)
-      // -------------------------------------------------------------
+      // 💳 2. CARDS: Initial State
       cards.forEach((card, i) => {
         const cardAngle = (i / cards.length) * Math.PI * 2;
         const startDist = Math.max(window.innerWidth, window.innerHeight) * 0.8; 
@@ -81,9 +77,7 @@ const InterestsSection = () => {
         });
       });
 
-      // -------------------------------------------------------------
-      // ⚙️ 3. SCROLLTRIGGER TIMELINE: Inbound Convergence (එහෙම්මමයි)
-      // -------------------------------------------------------------
+      // ⚙️ 3. SCROLLTRIGGER TIMELINE: Inbound Convergence
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sectionRef.current,
@@ -98,7 +92,6 @@ const InterestsSection = () => {
         },
       });
 
-      // අලුත් premium card size එකට ගැලපෙන්න width/height පොඩ්ඩක් හැදුවා
       const isMobile = window.innerWidth < 640;
       const cols = isMobile ? 2 : Math.min(4, cards.length);
       const cardWidth = isMobile ? 160 : 240;
@@ -127,7 +120,7 @@ const InterestsSection = () => {
         }, 0);
       });
 
-      tl.to({}, { duration: 30 });
+      tl.to({}, { duration: 1 });
 
     }, sectionRef);
 
@@ -169,19 +162,18 @@ const InterestsSection = () => {
         <div className="w-full flex-grow flex items-center justify-center relative my-auto">
           <div
             ref={cardsWrapRef}
-            className="relative w-full max-w-5xl h-[480px] flex items-center justify-center"
+            
           >
             {interests.map((item) => (
               <div
                 key={item.name}
                 className="absolute w-[160px] sm:w-[240px] h-[140px] sm:h-[180px] origin-center will-change-transform group"
               >
-                {/* 🌟 මෙන්න සුපිරි Card Design එක විතරක් වෙනස් කළා */}
                 {/* Neon Outer Border Container */}
                 <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-b from-neutral-800 via-neutral-900 to-neutral-950 group-hover:from-indigo-500 group-hover:via-purple-500 group-hover:to-cyan-400 transition-all duration-500 shadow-2xl group-hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]">
                   
                   {/* Glass Inside Body */}
-                  <div className="w-full h-full rounded-[15px] bg-neutral-900/80 group-hover:bg-neutral-950/95 backdrop-blur-xl p-5 flex flex-col items-center justify-center gap-4 transition-all duration-300 overflow-hidden relative">
+                  <div className="w-full h-full rounded-[15px] bg-neutral-900/80 group-hover:bg-neutral-950/95 backdrop-blur-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 overflow-hidden relative">
                     
                     {/* Corner Minimal Dot Decor */}
                     <div className="absolute top-2.5 right-2.5 w-1 h-1 rounded-full bg-neutral-800 group-hover:bg-indigo-400 transition-colors duration-300" />
@@ -190,11 +182,11 @@ const InterestsSection = () => {
                     <div className="absolute -bottom-8 -right-8 w-20 h-20 rounded-full bg-indigo-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
                     {/* 3D Floating Icon wrapper */}
-                    <div className="p-3 rounded-xl bg-neutral-950/60 border border-neutral-800/80 group-hover:border-neutral-700/60 group-hover:bg-neutral-900/60 shadow-inner group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 ease-out shrink-0">
+                    <div className=" rounded-xl bg-neutral-950/60 border border-neutral-800/80 group-hover:border-neutral-700/60 group-hover:bg-neutral-900/60 shadow-inner group-hover:scale-110 group-hover:-translate-y-1 transition-all duration-300 ease-out shrink-0">
                       <img
                         src={item.icon}
                         alt={item.name}
-                        className="h-7 w-7 sm:h-9 sm:w-9 object-contain filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)]"
+                        className="rounded-xl w-36 h-20 object-contain filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)]"
                         loading="lazy"
                       />
                     </div>
@@ -204,16 +196,10 @@ const InterestsSection = () => {
                       <h3 className="text-xs sm:text-sm font-semibold tracking-wide text-neutral-400 group-hover:text-white transition-colors duration-300 uppercase">
                         {item.name}
                       </h3>
-                      {item.description && (
-                        <p className="hidden sm:block mt-1 text-[11px] text-neutral-500 group-hover:text-neutral-400 line-clamp-2 transition-colors duration-300 leading-normal">
-                          {item.description}
-                        </p>
-                      )}
                     </div>
 
                   </div>
                 </div>
-                {/* 🌟 Card Design එක ඉවරයි */}
               </div>
             ))}
           </div>
