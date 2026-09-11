@@ -1,5 +1,5 @@
 export const interests = [
-  { name: "Web Design", icon: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771009931/webdesign_yv3eti.jpg" },
+  { name: "Web Design", icon: "https://res.cloudinary.com/dksfpirc6/image/upload/v1789093521/Figma_kznn5d.png" },
   { name: "Web Developer", icon: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771009931/webdevelop_v2ovwj.jpg" },
   { name: "FrontEnd Developer", icon: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771135542/frontend_uavxrm.webp" },
   { name: "Backend Developer", icon: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771135536/backend_tdkwsd.webp" },
