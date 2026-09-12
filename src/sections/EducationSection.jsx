@@ -33,12 +33,11 @@ const EducationSection = () => {
 
   useGSAP(
     () => {
-      // Overlap ලෙඩේ එන්නේ නැති වෙන්න timeline එකක් පාවිච්චි කරලා pin කරනවා
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top top",
-          end: "+=1200", // Page එක සිරවී (stop scroll) පවතින කාලය
+          end: "+=1200", 
           scrub: 1,
           pin: true,
           anticipatePin: 1,
@@ -51,18 +50,18 @@ const EducationSection = () => {
         transformStyle: "preserve-3d",
       });
 
-      // මුලින්ම front face විතරක් clickable කරනවා
+      // front face clickable
       gsap.set(".front-face", { pointerEvents: "auto" });
       gsap.set(".back-face", { pointerEvents: "none" });
 
-      // 🔄 Scroll වෙද්දී කාඩ් දෙකම එකවර 180°ක් Flip වන Timeline ඇනිමේෂන් එක
+      // 🔄 Scroll 180° Flip  Timeline
       tl.to([leftCardRef.current, rightCardRef.current], {
         rotateY: 180,
         duration: 2,
         ease: "power2.inOut",
       });
 
-      // Flip එක මැදදී Clickable target එක front එකෙන් back එකට මාරු කරනවා
+      // Flip  Clickable target  front to back change
       tl.set(".front-face", { pointerEvents: "none" }, 1);
       tl.set(".back-face", { pointerEvents: "auto" }, 1);
     },
@@ -80,8 +79,6 @@ const EducationSection = () => {
 
       {/* Ambient Lighting Background Core */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none" />
-
-      {/* Pin වන කාලය තුල screen එක මැද fix වී පවතින inner container එක */}
       <div
         ref={pinTargetRef}
         className="h-screen flex flex-col justify-between py-16 w-full relative z-10"

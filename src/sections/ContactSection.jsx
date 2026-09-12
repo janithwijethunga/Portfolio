@@ -21,7 +21,7 @@ const ContactSection = () => {
       case "email":
         return {
           icon: <FiMail className="w-4 h-4" />,
-          color: "text-blue-400 bg-blue-500/10 border-blue-500/25 shadow-blue-500/10",
+          color: "text-sky-400 bg-sky-500/10 border-sky-500/25 shadow-sky-500/10",
         };
       case "phone":
         return {
@@ -31,7 +31,7 @@ const ContactSection = () => {
       case "github":
         return {
           icon: <FiGithub className="w-4 h-4" />,
-          color: "text-zinc-300 bg-zinc-500/10 border-zinc-500/25 shadow-zinc-500/10",
+          color: "text-blue-400 bg-blue-500/10 border-blue-500/25 shadow-blue-500/10",
         };
       case "linkedin":
         return {
@@ -41,7 +41,7 @@ const ContactSection = () => {
       case "facebook":
         return {
           icon: <FiFacebook  className="w-4 h-4" />,
-          color: "text-sky-400 bg-sky-500/10 border-sky-500/25 shadow-sky-500/10",
+          color: "text-blue-400 bg-blue-500/10 border-blue-500/25 shadow-blue-500/10",
         };
       default:
         return {

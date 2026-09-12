@@ -60,7 +60,7 @@ const InterestsSection = () => {
       // 💳 2. CARDS: Initial State
       cards.forEach((card, i) => {
         const cardAngle = (i / cards.length) * Math.PI * 2;
-        const startDist = Math.max(window.innerWidth, window.innerHeight) * 0.8; 
+        const startDist = Math.max(window.innerWidth, window.innerHeight) * 0.8;
 
         gsap.set(card, {
           left: "50%",
@@ -69,7 +69,7 @@ const InterestsSection = () => {
           yPercent: -50,
           x: Math.cos(cardAngle) * startDist,
           y: Math.sin(cardAngle) * startDist,
-          z: gsap.utils.random(-400, -100), 
+          z: gsap.utils.random(-400, -100),
           rotationX: gsap.utils.random(-45, 45),
           rotationY: gsap.utils.random(-45, 45),
           rotationZ: gsap.utils.random(-30, 30),
@@ -82,12 +82,12 @@ const InterestsSection = () => {
         scrollTrigger: {
           trigger: sectionRef.current,
           start: "top top",
-          end: () => `+=${window.innerHeight * 2.0}`, 
+          end: () => `+=${window.innerHeight * 2.0}`,
           pin: true,
           scrub: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
-            renderStars(self.progress); 
+            renderStars(self.progress);
           },
         },
       });
@@ -106,29 +106,36 @@ const InterestsSection = () => {
         const targetX = (col - (cols - 1) / 2) * (cardWidth + gap);
         const targetY = (row - (totalRows - 1) / 2) * (cardHeight + gap);
 
-        tl.to(card, {
-          x: targetX,
-          y: targetY,
-          z: 0,
-          rotationX: 0,
-          rotationY: 0,
-          rotationZ: 0,
-          opacity: 1,
-          scale: 1,
-          duration: 80,
-          ease: "power3.out",
-        }, 0);
+        tl.to(
+          card,
+          {
+            x: targetX,
+            y: targetY,
+            z: 0,
+            rotationX: 0,
+            rotationY: 0,
+            rotationZ: 0,
+            opacity: 1,
+            scale: 1,
+            duration: 80,
+            ease: "power3.out",
+          },
+          0,
+        );
       });
 
       tl.to({}, { duration: 1 });
-
     }, sectionRef);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section id="interests" ref={sectionRef} className="relative overflow-hidden bg-neutral-950 text-white select-none">
+    <section
+      id="interests"
+      ref={sectionRef}
+      className="relative overflow-hidden bg-neutral-950 text-white select-none"
+    >
       {/* 🌌 Rotating Starfield Background */}
       <div
         ref={particlesRef}
@@ -142,7 +149,7 @@ const InterestsSection = () => {
             style={{
               width: `${Math.random() * 2.5 + 1}px`,
               height: `${Math.random() * 2.5 + 1}px`,
-              boxShadow: Math.random() > 0.8 ? "0 0 6px #ffffff" : "none"
+              boxShadow: Math.random() > 0.8 ? "0 0 6px #ffffff" : "none",
             }}
           />
         ))}
@@ -157,13 +164,9 @@ const InterestsSection = () => {
             subtitle="Roles and topics that keep me inspired and curious."
           />
         </Container>
-
         {/* 💳 Animation Stage Area */}
         <div className="w-full flex-grow flex items-center justify-center relative my-auto">
-          <div
-            ref={cardsWrapRef}
-            
-          >
+          <div ref={cardsWrapRef}>
             {interests.map((item) => (
               <div
                 key={item.name}
@@ -171,13 +174,11 @@ const InterestsSection = () => {
               >
                 {/* Neon Outer Border Container */}
                 <div className="relative w-full h-full rounded-2xl p-[1px] bg-gradient-to-b from-neutral-800 via-neutral-900 to-neutral-950 group-hover:from-indigo-500 group-hover:via-purple-500 group-hover:to-cyan-400 transition-all duration-500 shadow-2xl group-hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]">
-                  
                   {/* Glass Inside Body */}
-                  <div className="w-full h-full rounded-[15px] bg-neutral-900/80 group-hover:bg-neutral-950/95 backdrop-blur-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 overflow-hidden relative">
-                    
+                  <div className="w-full h-full rounded-[15px] bg-neutral group-hover:bg-neutral-950/95 backdrop-blur-xl flex flex-col items-center justify-center gap-4 transition-all duration-300 overflow-hidden relative">
                     {/* Corner Minimal Dot Decor */}
                     <div className="absolute top-2.5 right-2.5 w-1 h-1 rounded-full bg-neutral-800 group-hover:bg-indigo-400 transition-colors duration-300" />
-                    
+
                     {/* Inner Ambient Glow on Hover */}
                     <div className="absolute -bottom-8 -right-8 w-20 h-20 rounded-full bg-indigo-500/10 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
@@ -186,7 +187,7 @@ const InterestsSection = () => {
                       <img
                         src={item.icon}
                         alt={item.name}
-                        className="rounded-xl w-64 h-28 filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)]"
+                        className="rounded-xl w-52 h-24 filter drop-shadow-[0_4px_6px_rgba(0,0,0,0.5)]"
                         loading="lazy"
                       />
                     </div>
@@ -197,14 +198,12 @@ const InterestsSection = () => {
                         {item.name}
                       </h3>
                     </div>
-
                   </div>
                 </div>
               </div>
             ))}
           </div>
         </div>
-        
         <div className="h-4" />
       </div>
     </section>

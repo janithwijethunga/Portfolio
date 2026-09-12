@@ -77,7 +77,7 @@ const AdvancedScroll = () => {
     return () => ctx.revert();
   }, []);
 
-  // Category එකක් ක්ලික් කරාම Modal එක open කරන function එක
+  // Category click Modal open function
   const openCategoryModal = (category) => {
     setActiveCategory(category);
     setIsModalOpen(true);
@@ -103,7 +103,7 @@ const AdvancedScroll = () => {
             </h1>
           </div>
 
-          {/* HORIZONTAL PANELS TRACK STAGE (Categories 3 පෙන්වන තැන) */}
+          {/* HORIZONTAL PANELS TRACK STAGE (show 3 Categories) */}
           <div className="flex h-full w-max will-change-transform">
             {PROJECT_CATEGORIES.map((category) => (
               <div
