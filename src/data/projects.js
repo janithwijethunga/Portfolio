@@ -14,7 +14,7 @@ export const PROJECT_CATEGORIES = [
         description: "Jobright is a high-performance, full-stack job application tracker and career pipeline manager built to streamline the job search with an interactive drag-and-drop Kanban interface, secure authentication, and cloud-native document vaulting.",
         tech: ["Next Js", "Mongo DB", "Better-Auth", "Tailwind css", "Cloudinary", "Vercell" ],
         link: "https://github.com/janithwijethunga/Job-Application-Tracker",
-        image: "https://res.cloudinary.com/dksfpirc6/image/upload/v1771135545/jclothing_iow31y.webp"
+        image: "https://res.cloudinary.com/dksfpirc6/image/upload/v1791716654/jobright_w0zjvn.png"
       },
       {
         id: 2,
