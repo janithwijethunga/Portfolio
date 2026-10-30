@@ -1,4 +1,5 @@
 import { Footer, Navbar } from "../Components/common";
+import PortfolioChatAgent from "../Components/common/PortfolioChatAgent";
 
 
 const MainLayout = ({ children }) => {
@@ -9,6 +10,7 @@ const MainLayout = ({ children }) => {
         {children}
       </main>
       <Footer />
+      <PortfolioChatAgent />
     </div>
   )
 }
