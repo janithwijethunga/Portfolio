@@ -28,3 +28,28 @@
     @apply bg-primary-200 text-neutral-900;
   }
 }
+
+@keyframes deepBounceWithPause {
+  /* Active bounce wave during the first 66% (~1.0s) */
+  0% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  33% {
+    transform: translateY(-7px); /* Peak height */
+    opacity: 1;
+  }
+  66% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+  /* Flat rest period during the remaining 34% (~0.5s pause) */
+  100% {
+    transform: translateY(0);
+    opacity: 0.35;
+  }
+}
+
+.animate-dot-pause {
+  animation: deepBounceWithPause 1.5s infinite ease-in-out;
+}
