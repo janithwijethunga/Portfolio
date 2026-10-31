@@ -229,7 +229,7 @@ export default function PortfolioChatAgent() {
         >
           <div className="relative">
             <img
-              src="https://res.cloudinary.com/dksfpirc6/image/upload/v1793422861/agent-bot_o1f89l.webp"
+              src="https://res.cloudinary.com/dksfpirc6/image/upload/v1793432657/agent-bot_csq4ln.png"
               alt="AI Agent Avatar"
               className="h-12 w-12 sm:h-14 sm:w-14 rounded-full object-cover ring-2 ring-emerald-500/40 transition-transform group-hover:ring-emerald-400"
             />
