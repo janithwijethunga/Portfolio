@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom"; // 1. Import useNavigate
 
 const ProjectModal = ({ isOpen, onClose, category }) => {
+  const navigate = useNavigate(); // 2. Initialize hook
 
   useEffect(() => {
     if (isOpen) {
@@ -15,6 +17,22 @@ const ProjectModal = ({ isOpen, onClose, category }) => {
   }, [isOpen]);
 
   if (!isOpen || !category) return null;
+
+  // 3. Helper to convert "My Cool Project" -> "my-cool-project"
+  const createSlug = (name) => {
+    return name
+      .toLowerCase()
+      .trim()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/(^-|-$)/g, "");
+  };
+
+  // 4. Handle card click
+  const handleProjectClick = (project) => {
+    onClose(); // Close modal before navigating (also resets body overflow)
+    const slug = createSlug(project.name);
+    navigate(`/projects/${slug}`, { state: { project } }); // Passes project data to the new page
+  };
 
   return (
     <AnimatePresence>
@@ -70,7 +88,8 @@ const ProjectModal = ({ isOpen, onClose, category }) => {
               {category.projects.map((project) => (
                 <div 
                   key={project.id} 
-                  className="bg-neutral-950/50 border border-neutral-800/60 rounded-2xl p-5 flex flex-col justify-between hover:border-neutral-700/80 transition-colors group"
+                  onClick={() => handleProjectClick(project)} // 5. Trigger navigation
+                  className="bg-neutral-950/50 border border-neutral-800/60 rounded-2xl p-5 flex flex-col justify-between hover:border-indigo-500/60 transition-colors group cursor-pointer"
                 >
                   <div className="space-y-4">
                     <div className="w-full h-48 rounded-xl overflow-hidden relative">
@@ -85,7 +104,7 @@ const ProjectModal = ({ isOpen, onClose, category }) => {
                       <span className="text-[10px] font-mono tracking-widest uppercase text-neutral-500 block">
                         {project.fullName}
                       </span>
-                      <h4 className="text-xl font-black text-white uppercase tracking-tight">
+                      <h4 className="text-xl font-black text-white uppercase tracking-tight group-hover:text-indigo-400 transition-colors">
                         {project.name}
                       </h4>
                     </div>
@@ -108,9 +127,10 @@ const ProjectModal = ({ isOpen, onClose, category }) => {
                     </div>
 
                     <a
-                      href={project.link}
+                      href={project.githubLink}
                       target="_blank"
                       rel="noreferrer"
+                      onClick={(e) => e.stopPropagation()} // 6. Prevents card click when clicking GitHub
                       className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-neutral-300 hover:text-indigo-400 group/link transition-colors"
                     >
                       Explore on GitHub 
