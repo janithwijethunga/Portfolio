@@ -228,7 +228,7 @@ const ProjectDetails = () => {
                 Overview
               </h2>
               <p className="text-neutral-300 leading-relaxed text-base md:text-lg font-light">
-                {project.description}
+                {project.overview}
               </p>
             </section>
 
